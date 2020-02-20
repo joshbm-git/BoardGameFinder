@@ -7,10 +7,11 @@ export default class HomePage {
     document.getElementById('content').innerHTML += /*html*/ `
       <section id="home" class="page">
         <header class="topbar">
-          <h2>Home</h2>
+          <h2>Bedste brætspil lige nu</h2>
         </header>
-        <h3>SPA Template Modules Pages</h3>
-        <p>My Single Page Web App Template</p>
+        <input type="text" placeholder="Søg her..">
+
+        most popular
       </section>
     `;
   }
