@@ -9,6 +9,7 @@ export default class FilterPage {
           <header class="topbar">
             <h2>Find det mest ideelle brætspil</h2>
           </header>
+          filter
         </section>
       `;
     }
