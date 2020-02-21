@@ -12,8 +12,6 @@ export default class HomePage {
         <input type="text" placeholder="Søg her..">
 todo: overskrift "mest populære spil"
         most popular
-
-        dkjbdkjbs
       </section>
     `;
   }
