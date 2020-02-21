@@ -249,3 +249,20 @@ select {
 .tabbar a.active {
   opacity: 1;
 }
+
+
+
+
+
+
+/* ---------- Filter(Joshua) ---------- */
+#players {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#players .box {
+  height: 100px;
+  background-color: white;
+
+}
