@@ -10,7 +10,12 @@ export default class HomePage {
           <h2>Bedste brætspil lige nu</h2>
         </header>
         <input type="text" placeholder="Søg her..">
+<<<<<<< HEAD
         <h2>most popular</h2>
+=======
+todo: overskrift "mest populære spil"
+        most popular
+>>>>>>> master
       </section>
     `;
   }
