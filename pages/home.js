@@ -4,7 +4,7 @@ export default class HomePage {
   }
 
   template() {
-    document.getElementById('content').innerHTML += /*html*/ `
+    document.getElementById('content').innerHTML += `
       <section id="home" class="page">
         <header class="topbar">
           <h2>Bedste brætspil lige nu</h2>
@@ -14,6 +14,7 @@ export default class HomePage {
       </section>
     `;
   }
+<<<<<<< Updated upstream
 }
 
 
@@ -38,3 +39,6 @@ export default class HomePage {
 //   }
 // }
 // }
+=======
+}
+>>>>>>> Stashed changes
