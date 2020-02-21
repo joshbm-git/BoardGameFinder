@@ -73,8 +73,6 @@ h3 {
   text-transform: uppercase;
 }
 
-
-
 /* ---------- page styling ---------- */
 .page {
   display: none;
@@ -216,11 +214,6 @@ select {
   border-radius: 0;
 }
 
-
-
-
-
-
 /* --------------------------------------------------------------------------- */
 /* Custom css */
 .topbar {
@@ -232,7 +225,6 @@ select {
 .tabbar {
   background-color: red;
 }
-
 
 .tabbar a {
   opacity: 0.5;
@@ -248,4 +240,18 @@ select {
 /* Add a color to the active/current link */
 .tabbar a.active {
   opacity: 1;
+}
+
+/* --------------------------------------------------------------------------- */
+/* CSS by Jacob */
+#gameInfo {
+  display: flex;
+  max-width: 320px;
+  margin: auto;
+  padding: 1em;
+  background-color: lightgrey;
+}
+
+.pieceOfGameInfo {
+  padding: 2em;
 }

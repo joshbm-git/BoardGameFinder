@@ -11,8 +11,22 @@ export default class GamePage {
           <img src="../images/placeholder.jpg" alt="Brætspil">
         </header>
         <input type="text" placeholder="Søg her..">
-todo: overskrift "mest populære spil"
-        most popular
+        <div id="gameInfo">
+        <div class="pieceOfGameInfo">
+        <img src="../images/user.svg" alt="Number of Players">
+        <p>4-6</p>
+        </div>
+        <div class="pieceOfGameInfo">
+        <img src="../images/clock.svg" alt="Playtime">
+        <p>60-90 min</p>
+        </div>
+        <div class="pieceOfGameInfo">
+        <img src="../images/star.svg" alt="User Rating">
+        <p>4,5</p>
+        </div>
+        </div>
+<h1>Hva så møgkælling!</h1>
+<p>
       </section>
     `;
   }
