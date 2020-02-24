@@ -13,6 +13,7 @@ export default class HomePage {
         todo: overskrift "mest populære spil"
         most popular
       </section>
+
     `;
   }
 }
