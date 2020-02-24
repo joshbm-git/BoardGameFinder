@@ -27,9 +27,9 @@ export default class FavoriteService {
         for (let favorite of favorites) {
             htmlTemplate += `
             <article>
-            <img src="${favorite.img}">
-            <h2>${favorite.name}</h2>
-            <p>${favorite.category}</p>
+            <img src="${boardgame.img}">
+            <h2>${boardgame.name}</h2>
+            <p>${boardgame.category}</p>
             `;
         }
         document.querySelector('#content').innerHTML = htmlTemplate;
