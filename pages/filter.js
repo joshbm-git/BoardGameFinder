@@ -4,6 +4,9 @@ export default class FilterPage {
     this.template();
     this.boardgamesService = boardgameService
     this.boardgamesService.loadBoardgames().then(boardgames => this.appendBoardgames(boardgames));
+    this.players = 0;
+    this.playtime = 0;
+    this.genres = "";
   }
 
   template() {
@@ -16,14 +19,14 @@ export default class FilterPage {
           <h2>Hvor mange spiller er I?</h2>
           <div id="players">
         
-          <button class="box" onclick=""><a href="">1</a></button>
-          <button class="box" onclick=""><a href="">2</a></button>
-          <button class="box" onclick=""><a href="">3</a></button>
-          <button class="box" onclick=""><a href="">4</a></button>
-          <button class="box" onclick=""><a href="">5</a></button>
-          <button class="box" onclick=""><a href="">6</a></button>
-          <button class="box" onclick=""><a href="">7</a></button>
-          <button class="box" onclick=""><a href="">8+</a></button>
+          <button class="box" onclick="setPlayer(1)">1</button>
+          <button class="box" onclick="setPlayer(2)">2</button>
+          <button class="box" onclick="setPlayer(3)">3</button>
+          <button class="box" onclick="setPlayer(4)">4</button>
+          <button class="box" onclick="setPlayer(5)">5</button>
+          <button class="box" onclick="setPlayer(6)">6</button>
+          <button class="box" onclick="setPlayer(7)">7</button>
+          <button class="box" onclick="setPlayer(8)">8+</button>
         </div>
         </div>
         <div id="playtime"></div>
@@ -35,24 +38,29 @@ export default class FilterPage {
   }
 
 
+
   appendBoardgames(boardgames) {
+    let filteredBoardgames = [];
+
     for (let boardgame of boardgames) {
-      if (boardgame.name === "Spirit Island") {
-        document.querySelector("#grid-filtered-boardgames").innerHTML += `
-        <article>
-          <img src="${boardgame.image_url}">
-          <h4>${boardgame.name}</h4>
-        </article>
-        `;
+
+      if (this.players >= boardgame.min_players || this.players <= boardgames.max_players) {
+        filteredBoardgames.push(boardgame)
+
       }
     }
 
+    console.log(filteredBoardgames)
+
   }
 
-
-  playersSelected() {
-    this.appendBoardgames(boardgames.boardgame.min_players === 1)
-  }
+  /*   document.querySelector("#grid-filtered-boardgames").innerHTML += `
+          <article>
+            <img src="${boardgame.image_url}">
+            <h4>${boardgame.name}</h4>
+          </article>
+          `;
+   */
 
 
   //todo:

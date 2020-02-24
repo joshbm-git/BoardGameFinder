@@ -15,3 +15,4 @@ let favoritesPage = new FavoritesPage();
 spaService.init();
 
 window.pageChange = () => spaService.pageChange();
+window.setPlayer = (value) => filterPage.players = value;
