@@ -20,9 +20,9 @@ class BoardgamesService {
     // insert api here
     let response = await fetch("https://www.boardgameatlas.com/api/search?client_id=LtJ7MiiwkF");
     let jsonData = await response.json();
-    console.log(jsonData);
     return jsonData.games;
   }
+
 
 }
 

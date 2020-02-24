@@ -14,4 +14,6 @@ let favoritesPage = new FavoritesPage();
 // init services
 spaService.init();
 
+
 window.pageChange = () => spaService.pageChange();
+window.search = (value) => homePage.search(value);
