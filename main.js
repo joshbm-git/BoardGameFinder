@@ -17,4 +17,10 @@ let gamePage = new GamePage();
 spaService.init();
 
 window.pageChange = () => spaService.pageChange();
-window.setPlayer = (value) => filterPage.players = value;
+
+window.setPlayer = (value) => {
+    filterPage.players = value;
+    filterPage.appendBoardgames();
+    console.log(filterPage.players)
+    console.log(value)
+}
