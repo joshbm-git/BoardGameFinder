@@ -8,7 +8,7 @@ export default class PersonsPage {
 
   template() {
     document.getElementById('content').innerHTML += /*html*/ `
-      <section id="persons" class="page">
+      <section id="persons" class="page textAlignCenter">
         <header class="topbar">
           <h2>Persons</h2>
         </header>
