@@ -12,6 +12,7 @@ export default class HomePage {
       this.cat_rpg = "2Gu62aKdma";
       this.cat_party = "X8J7RM6dxX";
       this.cat_trivia = "YGHGDjahKY";
+      this.chosenGame = "";
     });
 
   }
@@ -43,13 +44,15 @@ export default class HomePage {
     document.querySelector("#grid-boardgames").innerHTML = '';
     let htmlTemplate = "";
     for (let boardgame of boardgames) {
-      htmlTemplate += `
+      htmlTemplate += /*html*/ `
                 <article>
-                  <a href="#game"><img src="${boardgame.image_url}"></a>
+                  <a href="#game"><img src="${boardgame.image_url}" onclick="setChosenGame(${boardgame.id})"></a>
                   <h4>${boardgame.name}</h4>
                 </article>
                 `;
     }
+
+
 
 
     document.querySelector("#grid-boardgames").innerHTML += htmlTemplate;
@@ -83,5 +86,10 @@ export default class HomePage {
     this.appendBoardgames(filteredGames);
   }
 
+  setChosenGame(id) {
+    console.log(id);
+
+
+  }
 
 }
