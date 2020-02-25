@@ -10,7 +10,8 @@ export default class FavoritesPage {
             <h2>Favoritter</h2>
           </header>
         </section>
-
+<div id="content"></div>
       `;
   }
+
 }

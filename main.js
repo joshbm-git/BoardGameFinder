@@ -2,6 +2,7 @@
 import HomePage from "./pages/home.js";
 import FilterPage from "./pages/filter.js";
 import FavoritesPage from "./pages/favorites.js";
+import FavoritesService from "./services/favorites-service.js";
 import GamePage from "./pages/gamepage.js";
 
 // import your services
@@ -12,6 +13,7 @@ let homePage = new HomePage();
 let filterPage = new FilterPage();
 let favoritesPage = new FavoritesPage();
 let gamePage = new GamePage();
+let favoritesService = new FavoritesService();
 
 // init services
 spaService.init();
