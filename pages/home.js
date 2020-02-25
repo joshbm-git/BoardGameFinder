@@ -87,7 +87,8 @@ export default class HomePage {
   }
 
   setChosenGame(id) {
-    console.log(id);
+    chosenGame = id;
+    console.log(chosenGame)
 
 
   }
