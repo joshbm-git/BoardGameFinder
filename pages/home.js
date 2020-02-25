@@ -6,6 +6,12 @@ export default class HomePage {
     this.boardgamesService.loadBoardgames().then(boardgames => {
       this.boardgames = boardgames;
       this.appendBoardgames(boardgames)
+      this.cat_fantasy = "ZTneo8TaIO";
+      this.cat_adventure = "KUBCKBkGxV";
+      this.cat_strategy = "O0ogzwLUe8";
+      this.cat_rpg = "2Gu62aKdma";
+      this.cat_party = "X8J7RM6dxX";
+      this.cat_trivia = "YGHGDjahKY";
     });
 
   }
@@ -39,7 +45,7 @@ export default class HomePage {
     for (let boardgame of boardgames) {
       htmlTemplate += `
                 <article>
-                  <img src="${boardgame.image_url}">
+                  <a href="#game"><img src="${boardgame.image_url}"></a>
                   <h4>${boardgame.name}</h4>
                 </article>
                 `;
