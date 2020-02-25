@@ -1,6 +1,9 @@
+import FavoriteService from "../services/favorites-service.js";
+
 export default class FavoritesPage {
   constructor() {
     this.template();
+    this.favoriteService = FavoriteService;
   }
 
   template() {

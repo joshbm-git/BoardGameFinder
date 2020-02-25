@@ -6,6 +6,7 @@ export default class FavoriteService {
     constructor() {
         this.favoriteRef = firebaseDB.collection("favorites");
         this.read();
+        this.template();
     }
     // ========== READ ==========
     // watch the database ref for changes
@@ -19,20 +20,32 @@ export default class FavoriteService {
                 favorites.push(favorite);
 
             });
-            this.appendFavorites(favorites);
-            console.log("lol")
+            this.appendFavorites(favorites)
         });
     }
 
-    // append users to the DOM
+    template() {
+        document.getElementById('content').innerHTML += /*html*/ `
+            <section id="favorites" class="page">
+              <header class="topbar">
+                <h2>Favoritter</h2>
+              </header>
+              <div id="fav-content"></div>
+            </section>
+
+          `;
+    }
+
+    // append favorites to the DOM
     appendFavorites(favorites) {
         let htmlTemplate = "";
         for (let favorite of favorites) {
-            htmlTemplate += `
-            <article>
-            <p>${favorite.id}</p>
-            `;
+            document.getElementById('fav-content').innerHTML += `
+        <p>${favorite.id}</p>
+      `;
         }
-        document.querySelector('#content').innerHTML = htmlTemplate;
+        console.log(favorites);
     }
+
+
 }
