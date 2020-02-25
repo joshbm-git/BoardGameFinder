@@ -7,7 +7,11 @@ export default class GamePage {
     document.getElementById('content').innerHTML += /*html*/ `
       <section id="game" class="page pageWithMargin">
         <header class="topbarWithImage">
-          <h2>Hej luder</h2>
+        <div class="topbarText">
+        <button class="backButton" onclick=""><img src="../images/heart.svg"></button>
+        <h2>Hej luder</h2>
+        <button class="favoriteButton" onclick="addFavorite()"><img src="../images/heart.svg"></button> 
+        </div>
         </header>
         <div id="gameInfo">
         <div id="gameInfoWrapper">
@@ -32,4 +36,10 @@ export default class GamePage {
       </section>
     `;
   }
+
+  addFavorites() {
+
+  }
+
+
 }

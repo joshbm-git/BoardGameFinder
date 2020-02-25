@@ -274,20 +274,6 @@ select {
   margin: 1em;
 }
 
-.topbarWithImage {
-  background-image: url("https://newrealreview.com/wp-content/uploads/2019/01/carcassonne-new-edition_1-1024x502.jpg");
-  background-size: cover;
-  color: var(--text-color-light);
-  padding: 13.5px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  font-size: 0.9em;
-  height: 12em;
-}
-
 .topbarWithImage h2 {
   margin: 0;
   font-weight: bold;
