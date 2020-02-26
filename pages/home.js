@@ -24,7 +24,7 @@ export default class HomePage {
         <header class="topbar">
           <h2>Bedste brætspil lige nu</h2>
         </header>
-        
+
         <input type="text" placeholder="Søg her.." onkeyup="search(this.value)">
         <h3>Mest populære brætspil</h3>
 
@@ -37,7 +37,7 @@ export default class HomePage {
   appendBoardgames(boardgames) {
     console.log(boardgames);
 
-    boardgames.sort(function (a, b) {
+    boardgames.sort(function(a, b) {
       return b.average_user_rating.toString().localeCompare(a.average_user_rating.toString());
     });
 
@@ -46,7 +46,7 @@ export default class HomePage {
     for (let boardgame of boardgames) {
       htmlTemplate += /*html*/ `
                 <article>
-                  <a href="#game"><img src="${boardgame.image_url}" onclick="setChosenGame(${boardgame.id})"></a>
+                  <a href="#game"><img src="${boardgame.image_url}" onclick="setChosenGame('${boardgame.id}')"></a>
                   <h4>${boardgame.name}</h4>
                 </article>
                 `;
@@ -87,9 +87,8 @@ export default class HomePage {
   }
 
   setChosenGame(id) {
-    chosenGame = id;
-    console.log(chosenGame)
-
+    this.chosenGame = id;
+    console.log(this.chosenGame);
 
   }
 
