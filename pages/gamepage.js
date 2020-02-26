@@ -9,6 +9,7 @@ export default class GamePage {
     this.chosenGame = "oGVgRSAKwX";
     this.theActualGame = []
     this.template();
+    this.favorite = false;
   }
 
   template() {
@@ -26,18 +27,16 @@ export default class GamePage {
 
   addFavorite(id) {
     console.log(id);
-    let favorite = false;
-    if (favorite) {
-      favorite = !favorite;
+    if (this.favorite) {
       document.querySelector(".favoriteButton").innerHTML = /*html*/ `
         <img src="../images/heart-unfilled.svg">
         `;
     } else {
-      favorite = !favorite;
       document.querySelector(".favoriteButton").innerHTML = /*html*/ `
         <img src="../images/heart.svg">
         `;
     }
+    this.favorite = !this.favorite;
   }
 
   findGame(boardgames, id) {
