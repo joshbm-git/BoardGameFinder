@@ -1,6 +1,8 @@
 .topbarWithImage {
-  background-image: url("https://newrealreview.com/wp-content/uploads/2019/01/carcassonne-new-edition_1-1024x502.jpg");
-  background-color: #d6d6d6;
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.0)),
+    url("images/sample.png");
+  background-color: #f7f7f7;
   background-blend-mode: multiply;
   background-size: cover;
   color: var(--text-color-light);

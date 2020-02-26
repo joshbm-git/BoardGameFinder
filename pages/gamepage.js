@@ -54,7 +54,7 @@ export default class GamePage {
     console.log(this.theActualGame);
 
 
-    document.querySelector(".topbarWithImage").style.backgroundImage = "url(" + this.theActualGame.image_url + ")";
+    document.querySelector(".topbarWithImage").style.backgroundImage = "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.0)), url(" + this.theActualGame.image_url + ")";
 
     console.log(this.theActualGame.image_url);
 
