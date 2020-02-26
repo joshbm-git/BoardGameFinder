@@ -11,8 +11,6 @@ export default class GamePage {
     this.template();
   }
 
-
-
   template() {
     document.getElementById('content').innerHTML += /*html*/ `
       <section id="game" class="page pageWithMargin">
@@ -26,8 +24,20 @@ export default class GamePage {
     `;
   }
 
-  addFavorites() {
-
+  addFavorite(id) {
+    console.log(id);
+    let favorite = false;
+    if (favorite) {
+      favorite = !favorite;
+      document.querySelector(".favoriteButton").innerHTML = /*html*/ `
+        <img src="../images/heart-unfilled.svg">
+        `;
+    } else {
+      favorite = !favorite;
+      document.querySelector(".favoriteButton").innerHTML = /*html*/ `
+        <img src="../images/heart.svg">
+        `;
+    }
   }
 
   findGame(boardgames, id) {
@@ -48,12 +58,11 @@ export default class GamePage {
 
     console.log(this.theActualGame.image_url);
 
-    document.querySelector(".topbarWithImage").innerHTML +=
-      document.querySelector(".topbarWithImage").innerHTML += /*html*/ `
+    document.querySelector(".topbarWithImage").innerHTML += /*html*/ `
       <div class="topbarText">
-      <button class="backButton" onclick=""><img src="../images/heart.svg"></button>
+      <button class="backButton" onclick=""><img src="../images/back.svg"></button>
       <h2>${this.theActualGame.name}</h2>
-      <button class="favoriteButton" onclick="addFavorite('${this.chosengame}')"><img src="../images/heart.svg"></button>
+      <button class="favoriteButton" onclick="addFavorite('${this.chosenGame}')"><img src="../images/heart-unfilled.svg"></button>
       </div>
       `;
     document.querySelector("#gameInfo").innerHTML += /*html*/ `
