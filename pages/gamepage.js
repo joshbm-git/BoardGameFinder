@@ -1,16 +1,14 @@
 import boardgameService from "../services/boardgames.js";
 export default class GamePage {
   constructor() {
-    this.chosenGame = "RLlDWHh7hR";
-    this.theActualGame = "";
-    this.template();
     this.boardgamesService = boardgameService;
     this.boardgamesService.loadBoardgames().then(boardgames => {
       this.boardgames = boardgames;
       this.findGame(boardgames, this.chosenGame);
-
-    })
-
+    });
+    this.chosenGame = "RLlDWHh7hR";
+    this.theActualGame = []
+    this.template();
   }
 
   template() {
@@ -18,25 +16,9 @@ export default class GamePage {
       <section id="game" class="page pageWithMargin">
         <header class="topbarWithImage">
         </header>
-        <div id="gameInfo">
-        <div id="gameInfoWrapper">
-        <div class="pieceOfGameInfo">
-        <img src="../images/user.svg" alt="Number of Players">
-        <p>X-X</p>
-        </div>
-        <div class="pieceOfGameInfo">
-        <img src="../images/clock.svg" alt="Playtime">
-        <p>X-Xm</p>
-        </div>
-        <div class="pieceOfGameInfo">
-        <img src="../images/star.svg" alt="User Rating">
-        <p>X</p>
-        </div>
-        </div>
-        </div>
+        <section id="gameInfo">
+        </section>
         <section id="gameDescription">
-<h3>Beskrivelse</h3>
-<p>${this.chosenGame}</p>
         </section>
       </section>
     `;
@@ -56,20 +38,45 @@ export default class GamePage {
         filteredGames.push(boardgame);
       }
     }
-
-    this.theActualGame = filteredGames;
+    this.theActualGame = filteredGames[0];
     console.log(this.theActualGame);
 
-    let htmlTemplate = "";
-    htmlTemplate = /*html*/ `
+
+    document.querySelector(".topbarWithImage").style.backgroundImage = "url(" + this.theActualGame.image_url + ")";
+
+    console.log(this.theActualGame.image_url);
+
+    document.querySelector(".topbarWithImage").innerHTML +=
+      document.querySelector(".topbarWithImage").innerHTML += /*html*/ `
       <div class="topbarText">
       <button class="backButton" onclick=""><img src="../images/heart.svg"></button>
       <h2>${this.theActualGame.name}</h2>
-      <button class="favoriteButton" onclick="addFavorite()"><img src="../images/heart.svg"></button>
+      <button class="favoriteButton" onclick="addFavorite('${this.chosengame}')"><img src="../images/heart.svg"></button>
       </div>
       `;
-    document.querySelector(".topbarWithImage").innerHTML += htmlTemplate;
-
+    document.querySelector("#gameInfo").innerHTML += /*html*/ `
+      <div id="gameInfoWrapper">
+      <div class="pieceOfGameInfo">
+      <img src="../images/user.svg" alt="Number of Players">
+      <p>${this.theActualGame.min_players}-${this.theActualGame.max_players}</p>
+      </div>
+      <div class="pieceOfGameInfo">
+      <img src="../images/clock.svg" alt="Playtime">
+      <p>${this.theActualGame.min_playtime}-${this.theActualGame.max_playtime}m</p>
+      </div>
+      <div class="pieceOfGameInfo">
+      <img src="../images/star.svg" alt="User Rating">
+      <p>${this.theActualGame.average_user_rating.toFixed(1)}</p>
+      </div>
+      </div>
+      `;
+    document.querySelector("#gameDescription").innerHTML += /*html*/ `
+    <h3>Beskrivelse</h3>
+    <p>${this.theActualGame.description}</p>
+    <p><strong>Year Published:</strong> ${this.theActualGame.year_published}</p>
+    <p><strong>Published by:</strong> ${this.theActualGame.primary_publisher}</p>
+    <p><strong>Minimum age:</strong> ${this.theActualGame.min_age}</p>
+        `;
   }
 
 }
