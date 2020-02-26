@@ -16,4 +16,7 @@ let gamePage = new GamePage();
 // init services
 spaService.init();
 
+
 window.pageChange = () => spaService.pageChange();
+window.search = (value) => homePage.search(value);
+window.setChosenGame = (id) => homePage.setChosenGame(id);
