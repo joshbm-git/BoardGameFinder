@@ -6,7 +6,7 @@ export default class GamePage {
       this.boardgames = boardgames;
       this.findGame(boardgames, this.chosenGame);
     });
-    this.chosenGame = "4G32qGJZWs";
+    this.chosenGame = "oGVgRSAKwX";
     this.theActualGame = []
     this.template();
   }
