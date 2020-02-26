@@ -12,7 +12,7 @@ export default class HomePage {
       this.cat_rpg = "2Gu62aKdma";
       this.cat_party = "X8J7RM6dxX";
       this.cat_trivia = "YGHGDjahKY";
-      this.chosenGame = "";
+      this.chosenGame = "bitch";
     });
 
   }
@@ -91,5 +91,4 @@ export default class HomePage {
     console.log(this.chosenGame);
 
   }
-
 }
