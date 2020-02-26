@@ -20,7 +20,24 @@ window.pageChange = () => spaService.pageChange();
 
 window.setPlayer = (value) => {
     filterPage.players = value;
-    filterPage.appendBoardgames();
     console.log(filterPage.players)
     console.log(value)
+    // console.log(filterPage.filteredBoardgames)
 }
+
+window.setPlaytime = (value) => {
+    filterPage.playtime = value;
+    console.log(filterPage.playtime)
+    console.log(value)
+}
+
+window.setGenre = (value) => {
+    filterPage.genre = value;
+    filterPage.filterAll();
+    console.log(filterPage.genre)
+    console.log(value)
+}
+
+window.addPlaytime = () => filterPage.addPlaytime();
+window.addGenre = () => filterPage.addGenre();
+window.appendBoardgames = () => filterPage.appendBoardgames();
