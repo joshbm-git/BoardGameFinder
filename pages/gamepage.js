@@ -6,10 +6,12 @@ export default class GamePage {
       this.boardgames = boardgames;
       this.findGame(boardgames, this.chosenGame);
     });
-    this.chosenGame = "RLlDWHh7hR";
+    this.chosenGame = "4G32qGJZWs";
     this.theActualGame = []
     this.template();
   }
+
+
 
   template() {
     document.getElementById('content').innerHTML += /*html*/ `
@@ -71,12 +73,14 @@ export default class GamePage {
       </div>
       `;
     document.querySelector("#gameDescription").innerHTML += /*html*/ `
-    <h3>Beskrivelse</h3>
+    <h3>Description</h3>
     <p>${this.theActualGame.description}</p>
-    <p><strong>Year Published:</strong> ${this.theActualGame.year_published}</p>
+    <p><strong>Year published:</strong> ${this.theActualGame.year_published}</p>
     <p><strong>Published by:</strong> ${this.theActualGame.primary_publisher}</p>
     <p><strong>Minimum age:</strong> ${this.theActualGame.min_age}</p>
         `;
+
+    document.title = this.theActualGame.name + " | Board Game Finder";
   }
 
 }
