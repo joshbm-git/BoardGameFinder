@@ -5,8 +5,14 @@ export default class HomePage {
     this.boardgamesService = boardgameService;
     this.boardgamesService.loadBoardgames().then(boardgames => {
       this.boardgames = boardgames;
-      this.appendBoardgames(boardgames);
-      this.chosenGame = "";
+      this.appendBoardgames(boardgames)
+      this.cat_fantasy = "ZTneo8TaIO";
+      this.cat_adventure = "KUBCKBkGxV";
+      this.cat_strategy = "O0ogzwLUe8";
+      this.cat_rpg = "2Gu62aKdma";
+      this.cat_party = "X8J7RM6dxX";
+      this.cat_trivia = "YGHGDjahKY";
+      this.chosenGame = "RLlDWHh7hR";
     });
   }
 
