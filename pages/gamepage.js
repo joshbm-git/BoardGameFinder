@@ -59,7 +59,7 @@ export default class GamePage {
 
     document.querySelector(".topbarWithImage").innerHTML += /*html*/ `
       <div class="topbarText">
-      <button class="backButton" onclick=""><img src="../images/back.svg"></button>
+      <button class="backButton" onclick="history.back()"><img src="../images/back.svg"></button>
       <h2>${this.theActualGame.name}</h2>
       <button class="favoriteButton" onclick="addFavorite('${this.chosenGame}')"><img src="../images/heart-unfilled.svg"></button>
       </div>

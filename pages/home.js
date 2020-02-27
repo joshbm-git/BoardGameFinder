@@ -1,4 +1,7 @@
 import boardgameService from "../services/boardgames.js";
+import GamePage from "./gamepage.js"
+let gamePage = new GamePage();
+
 export default class HomePage {
   constructor() {
     this.template();
@@ -16,7 +19,6 @@ export default class HomePage {
     });
 
   }
-
 
   template() {
     document.getElementById('content').innerHTML += /*html*/ `
@@ -87,8 +89,9 @@ export default class HomePage {
   }
 
   setChosenGame(id) {
-    this.chosenGame = id;
-    console.log(this.chosenGame);
+    gamePage.chosenGame = id;
+    console.log(gamePage.chosenGame);
 
   }
+
 }
