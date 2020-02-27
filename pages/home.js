@@ -21,73 +21,75 @@ export default class HomePage {
       let template = "";
       for (const category of categories) {
         if (category.id == "KUBCKBkGxV") {
-          template += "adventure ";
+          template += "Adventure, ";
         }
 
         if (category.id == "ZTneo8TaIO") {
-          template += "fantasy ";
+          template += "Fantasy, ";
         }
 
         if (category.id == "O0ogzwLUe8") {
-          template += "strategy ";
+          template += "Strategy, ";
         }
 
         if (category.id == "2Gu62aKdma") {
-          template += "rpg ";
+          template += "RPG, ";
         }
 
         if (category.id == "X8J7RM6dxX") {
-          template += "party ";
+          template += "Party, ";
         }
 
         if (category.id == "YGHGDjahKY") {
-          template += "trivia ";
+          template += "Trivia, ";
         }
 
         if (category.id == "3B3QpKvXD3") {
-          template += "scifi ";
+          template += "Sci-fi, ";
         }
 
         if (category.id == "eX8uuNlQkQ") {
-          template += "card ";
+          template += "Card, ";
         }
 
         if (category.id == "QAYkTHK1Dd") {
-          template += "medieval ";
+          template += "Medieval, ";
         }
 
         if (category.id == "N0TkEGfEsF") {
-          template += "economic ";
+          template += "Economic, ";
         }
 
         if (category.id == "a8NM5cugJX") {
-          template += "ancient ";
+          template += "Ancient, ";
         }
 
         if (category.id == "ODWOjWAJj3") {
-          template += "city building ";
+          template += "City Building, ";
         }
 
         if (category.id == "TKQncFVX74") {
-          template += "political ";
+          template += "Political, ";
         }
       }
-
+      template = template.substring(0, template.length - 2);
       return template;
     }
   }
 
   template() {
     document.getElementById("content").innerHTML += /*html*/ `
-      <section id="home" class="page">
-        <header class="topbar">
-          <img src="../images/logo.png">
+      <section id="home" class="page-forside">
+        <header>
+          <img src="../images/logo.png" class="logo">
         </header>
 
         <input type="text" placeholder="Søg her.." onkeyup="search(this.value)">
+        
+        <div class="grid-wrapper">
         <h3>Mest populære brætspil</h3>
-
         <div id="grid-boardgames" class="grid-container"></div>
+        </div>
       </section>
     `;
   }

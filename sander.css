@@ -1,8 +1,10 @@
 /* --------------------------------------------------------------------------- */
 /* CSS Sander */
 
-.page {
-    background-image: linear-gradient(to right bottom, #ff8ece, #ff98b1, #ffaa99, #ffc08c, #ffd78e, #ffd589, #ffd285, #ffd080, #ffb279, #ff918b, #ff74af, #ff6bdf);
+.page-forside {
+    background-image: linear-gradient(to left bottom, #f7718d, #fec771);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .topbar {
@@ -12,10 +14,14 @@
 .grid-container {
     display: grid;
     grid-template-columns: 50% 50%;
+
+}
+
+.grid-wrapper {
+    background-color: white;
     margin: 0px 15px;
     padding: 10px;
     border-radius: 20px;
-    background-color: white
 }
 
 
@@ -46,13 +52,21 @@
 }
 
 .grid-container>article h4 {
-    margin: 10px 0;
+    margin: 0;
+    margin-top: 20px;
 }
 
 .grid-container>article h5 {
     font-size: 0.8em;
     color: rgba(0, 0, 0, 0.5);
-    margin-top: 10px;
+    margin-top: 0px;
+}
+
+.grid-wrapper h3 {
+    letter-spacing: normal;
+    font-weight: 900;
+    font-size: 1.4em;
+    margin-top: 48px;
 }
 
 
@@ -67,4 +81,12 @@ select {
     display: block;
     border: 0;
     border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 100%;
+    max-width: 325px;
+    margin: 0 20px;
+    margin-top: 28px;
 }
