@@ -30,9 +30,47 @@ export default class FavoriteService {
               <header class="topbar">
                 <h2>Favoritter</h2>
               </header>
-
               <div id="favoriteInfo">
+              <div id="favoriteInfoWrapper">
+              <img src="./images/carc.jpg">
+              <p><strong>Carcassonne</strong></p>
+              <p>Building</p>
+              <div id="fav-content"></div>
+              
               </div>
+              </div>
+              <hr>
+              <div id="favoriteInfo">
+              <div id="favoriteInfoWrapper">
+              <img src="./images/carc.jpg">
+              <p><strong>Carcassonne</strong></p>
+              <p>Building</p>
+              <div id="fav-content"></div>
+              
+              </div>
+              </div>
+              <hr>
+              <div id="favoriteInfo">
+              <div id="favoriteInfoWrapper">
+              <img src="./images/carc.jpg">
+              <p><strong>Carcassonne</strong></p>
+              <p>Building</p>
+              <div id="fav-content"></div>
+              
+              </div>
+              </div>
+              <hr>
+              <div id="favoriteInfo">
+              <div id="favoriteInfoWrapper">
+              <img src="./images/carc.jpg">
+              <p><strong>Carcassonne</strong></p>
+              <p>Building</p>
+              <div id="fav-content"></div>
+              
+              </div>
+              </div>
+              <hr>
+              
             </section>
 
           `;
@@ -42,18 +80,10 @@ export default class FavoriteService {
     appendFavorites(favorites) {
         let htmlTemplate = "";
         for (let favorite of favorites) {
-            document.getElementById('favoriteInfo').innerHTML += /*html*/ `
-        <div class="favoriteWrapper">
-        <img src="${favorite.img}">
-        <div class="favoriteInfoWrapper">
-        <h2><strong>${favorite.name}</strong></h2>
-        <div class="favoriteCategories">
-        <p>${favorite.categories[0]},</p>
-        <p>${favorite.categories[1]}...</p>
-        </div>
-        </div>
-        </div>
-        <hr>
+            document.getElementById('fav-content').innerHTML += `
+        <p>${favorite.id}</p>
+        
+        
 
       `;
         }

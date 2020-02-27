@@ -22,5 +22,9 @@ spaService.init();
 window.pageChange = () => spaService.pageChange();
 window.search = (value) => homePage.search(value);
 window.setChosenGame = (id) => homePage.setChosenGame(id);
+<<<<<<< HEAD
 window.addFavorite = (id) => gamePage.addFavorite(id);
 window.appendFavorites = (favorites) => FavoriteService.appendFavorites(favorites);
+=======
+window.addFavorite = (id) => gamePage.addFavorite(id);
+>>>>>>> parent of e564cef... Favorite
