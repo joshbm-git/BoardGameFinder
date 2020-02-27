@@ -15,7 +15,7 @@ export default class HomePage {
       this.chosenGame = "RLlDWHh7hR";
     });
   }
-
+  // hej
   getCategories(categories) {
     if (categories) {
       let template = "";
