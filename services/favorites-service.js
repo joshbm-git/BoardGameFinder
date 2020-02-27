@@ -30,7 +30,47 @@ export default class FavoriteService {
               <header class="topbar">
                 <h2>Favoritter</h2>
               </header>
+              <div id="favoriteInfo">
+              <div id="favoriteInfoWrapper">
+              <img src="./images/carc.jpg">
+              <p><strong>Carcassonne</strong></p>
+              <p>Building</p>
               <div id="fav-content"></div>
+              
+              </div>
+              </div>
+              <hr>
+              <div id="favoriteInfo">
+              <div id="favoriteInfoWrapper">
+              <img src="./images/carc.jpg">
+              <p><strong>Carcassonne</strong></p>
+              <p>Building</p>
+              <div id="fav-content"></div>
+              
+              </div>
+              </div>
+              <hr>
+              <div id="favoriteInfo">
+              <div id="favoriteInfoWrapper">
+              <img src="./images/carc.jpg">
+              <p><strong>Carcassonne</strong></p>
+              <p>Building</p>
+              <div id="fav-content"></div>
+              
+              </div>
+              </div>
+              <hr>
+              <div id="favoriteInfo">
+              <div id="favoriteInfoWrapper">
+              <img src="./images/carc.jpg">
+              <p><strong>Carcassonne</strong></p>
+              <p>Building</p>
+              <div id="fav-content"></div>
+              
+              </div>
+              </div>
+              <hr>
+              
             </section>
 
           `;
@@ -42,6 +82,9 @@ export default class FavoriteService {
         for (let favorite of favorites) {
             document.getElementById('fav-content').innerHTML += `
         <p>${favorite.id}</p>
+        
+        
+
       `;
         }
         console.log(favorites);

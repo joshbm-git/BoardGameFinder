@@ -11,7 +11,11 @@ export default class FavoritesPage {
         <section id="favorites" class="page">
           <header class="topbar">
             <h2>Favoritter</h2>
+            
           </header>
+          
+          
+          
         </section>
 <div id="content"></div>
       `;
