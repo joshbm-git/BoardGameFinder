@@ -19,7 +19,7 @@ export default class PersonsPage {
 
   appendPersons(persons) {
     for (let person of persons) {
-      document.querySelector("#grid-persons").innerHTML += /*html*/ `
+      document.querySelector("#content").innerHTML += /*html*/ `
         <article>
           <img src="${person.picture.large}">
           <h4>${person.name.first} ${person.name.last}</h4>

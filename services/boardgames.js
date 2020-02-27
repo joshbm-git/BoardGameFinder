@@ -24,6 +24,7 @@ class BoardgamesService {
     return jsonData.games;
   }
 
+
 }
 
 /* client_id = LtJ7MiiwkF
