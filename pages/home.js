@@ -98,7 +98,7 @@ export default class HomePage {
   appendBoardgames(boardgames) {
     console.log(boardgames);
 
-    boardgames.sort(function(a, b) {
+    boardgames.sort(function (a, b) {
       return b.average_user_rating
         .toString()
         .localeCompare(a.average_user_rating.toString());
@@ -111,14 +111,13 @@ export default class HomePage {
               
                 <article>
                 <div class="img-container">
-                <a href="#game"><img src="${
-                  boardgame.image_url
-                }" onclick="setChosenGame('${boardgame.id}')"></a>
+                <a href="#game"><img src="${boardgame.image_url}" onclick="setChosenGame('${boardgame.id}')"></a>
                   </div>
 
                 <article>
                   <h4>${boardgame.name}</h4>
                   <h5>${this.getCategories(boardgame.categories)}</h5>
+                </article>
                 </article>
                 `;
     }
