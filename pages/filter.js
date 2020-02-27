@@ -20,30 +20,27 @@ export default class FilterPage {
           <header class="topbar">
             <h2>Find det mest ideelle brætspil</h2>
           </header>
-          <div id="filter-wrapper">
-          <h2>Hvor mange spiller er I?</h2>
-          <div class="grid-system" id="players">
-          <button class="box" onclick="setPlayer(1);addPlaytime();">1</button>
-          <button class="box" onclick="setPlayer(2);addPlaytime();">2</button>
-          <button class="box" onclick="setPlayer(3);addPlaytime();">3</button>
-          <button class="box" onclick="setPlayer(4);addPlaytime();">4</button>
-          <button class="box" onclick="setPlayer(5);addPlaytime();">5</button>
-          <button class="box" onclick="setPlayer(6);addPlaytime();">6</button>
-          <button class="box" onclick="setPlayer(7);addPlaytime();">7</button>
-          <button class="box" onclick="setPlayer(8);addPlaytime();">8+</button>
-        </div>
-        </div>
-
+          <div class="filter-wrapper">
+            <h2>Hvor mange spiller er I?</h2>
+            <div class="grid-system" id="players">
+              <button class="box" onclick="setPlayer(1);addPlaytime();">1</button>
+              <button class="box" onclick="setPlayer(2);addPlaytime();">2</button>
+              <button class="box" onclick="setPlayer(3);addPlaytime();">3</button>
+              <button class="box" onclick="setPlayer(4);addPlaytime();">4</button>
+              <button class="box" onclick="setPlayer(5);addPlaytime();">5</button>
+              <button class="box" onclick="setPlayer(6);addPlaytime();">6</button>
+              <button class="box" onclick="setPlayer(7);addPlaytime();">7</button>
+              <button class="box" onclick="setPlayer(8);addPlaytime();">8+</button>
+              </div>
+           </div>
         </section>
-
-        <div id="grid-filtered-boardgames" class="grid-container"></div>
       `;
   }
 
 
 
   addPlaytime() {
-    document.querySelector("#filter-wrapper").innerHTML = /*html*/ `
+    document.querySelector(".filter-wrapper").innerHTML = /*html*/ `
     <h2>Hvor længe vil I ca. spille?</h2>
     <div class="grid-system" id="playtime">
     <button class="box" onclick="setPlaytime(15);addGenre();">15</button>
@@ -59,7 +56,7 @@ export default class FilterPage {
   }
 
   addGenre() {
-    document.querySelector("#filter-wrapper").innerHTML = /*html*/ `
+    document.querySelector(".filter-wrapper").innerHTML = /*html*/ `
     <h2>Vælg en genre</h2>
     <div class="grid-system" id="genres">
     <button class="box" onclick="setGenre('hBqZ3Ar4RJ');appendBoardgames();">Abstract</button>
@@ -70,7 +67,7 @@ export default class FilterPage {
     <button class="box" onclick="setGenre('2Gu62aKdma');appendBoardgames();">Role Playing</button>
     <button class="box" onclick="setGenre('3B3QpKvXD3');appendBoardgames();">Sci-fi</button>
     <button class="box" onclick="setGenre('O0ogzwLUe8');appendBoardgames();">Strategy</button>
-    </div> */
+    </div> 
   `;
   }
 
@@ -124,8 +121,8 @@ export default class FilterPage {
     let includes = false;
 
     for (let category of categories) {
-      console.log(category)
-      console.log(genre)
+      /*   console.log(category)
+        console.log(genre) */
       if (category.id == genre) {
         includes = true;
       }
@@ -134,25 +131,36 @@ export default class FilterPage {
   }
 
   appendBoardgames() {
-    console.log(this.filteredBoardgames)
-    let htmlTemplate = "";
-    htmlTemplate += /*html*/ `
-    <h2>Vi fandt x matches</h2>`
-
+    document.querySelector(".filter-wrapper").innerHTML = /*html*/ `
+    <h2>Vi fandt ${this.filteredBoardgames.length} matches</h2>
+  `
     for (let boardgame of this.filteredBoardgames) {
-      htmlTemplate += /*html*/ `
-    
-    <div class="grid-system" id="boardgames">
-${boardgame.name}
-    </div> 
-  `;
-
-    }
-    document.querySelector("#filter-wrapper").innerHTML = htmlTemplate;
+      document.querySelector(".filter-wrapper").innerHTML += /*html*/ `
+    <div class="boardgame">
+    <figure>
+      <img src="${boardgame.images.original}">  
+    </figure>
+    <h2>${boardgame.name}</h2>
+  <div>
+    `
+    };
   }
 }
 
-
+/* <div class="filter-wrapper">
+<h2>Hvor mange spiller er I?</h2>
+<div class="grid-system" id="players">
+  <button class="box" onclick="setPlayer(1);addPlaytime();">1</button>
+  <button class="box" onclick="setPlayer(2);addPlaytime();">2</button>
+  <button class="box" onclick="setPlayer(3);addPlaytime();">3</button>
+  <button class="box" onclick="setPlayer(4);addPlaytime();">4</button>
+  <button class="box" onclick="setPlayer(5);addPlaytime();">5</button>
+  <button class="box" onclick="setPlayer(6);addPlaytime();">6</button>
+  <button class="box" onclick="setPlayer(7);addPlaytime();">7</button>
+  <button class="box" onclick="setPlayer(8);addPlaytime();">8+</button>
+  </div>
+</div>
+ */
 
 //optional todo: spring over
 
