@@ -6,15 +6,6 @@ export default class HomePage {
     this.boardgamesService.loadBoardgames().then(boardgames => {
       this.boardgames = boardgames;
       this.appendBoardgames(boardgames);
-
-      this.cat_adventure = "KUBCKBkGxV";
-      this.cat_fantasy = "ZTneo8TaIO";
-      this.cat_strategy = "O0ogzwLUe8";
-      this.cat_rpg = "2Gu62aKdma";
-      this.cat_party = "X8J7RM6dxX";
-      this.cat_trivia = "YGHGDjahKY";
-      this.cat_scifi = "3B3QpKvXD3";
-      this.cat_card = "eX8uuNlQkQ";
       this.chosenGame = "";
     });
   }
@@ -60,19 +51,19 @@ export default class HomePage {
         }
 
         if (category.id == "N0TkEGfEsF") {
-          template += "economic";
+          template += "economic ";
         }
 
         if (category.id == "a8NM5cugJX") {
-          template += "ancient";
+          template += "ancient ";
         }
 
         if (category.id == "ODWOjWAJj3") {
-          template += "city building";
+          template += "city building ";
         }
 
         if (category.id == "TKQncFVX74") {
-          template += "political";
+          template += "political ";
         }
       }
 
@@ -84,7 +75,7 @@ export default class HomePage {
     document.getElementById("content").innerHTML += /*html*/ `
       <section id="home" class="page">
         <header class="topbar">
-          <h2>Bedste brætspil lige nu</h2>
+          <img src="../images/logo.png">
         </header>
 
         <input type="text" placeholder="Søg her.." onkeyup="search(this.value)">
