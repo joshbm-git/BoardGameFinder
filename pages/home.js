@@ -6,14 +6,82 @@ export default class HomePage {
     this.boardgamesService.loadBoardgames().then(boardgames => {
       this.boardgames = boardgames;
       this.appendBoardgames(boardgames)
-      this.cat_fantasy = "ZTneo8TaIO";
+
       this.cat_adventure = "KUBCKBkGxV";
+      this.cat_fantasy = "ZTneo8TaIO";
       this.cat_strategy = "O0ogzwLUe8";
       this.cat_rpg = "2Gu62aKdma";
       this.cat_party = "X8J7RM6dxX";
       this.cat_trivia = "YGHGDjahKY";
+      this.cat_scifi = "3B3QpKvXD3";
+      this.cat_card = "eX8uuNlQkQ";
     });
 
+  }
+
+  getCategories(categories) {
+
+    if (categories) {
+
+      let template = '';
+      for (const category of categories) {
+        if (category.id == 'KUBCKBkGxV') {
+          template += 'adventure ';
+        }
+
+        if (category.id == 'ZTneo8TaIO') {
+          template += 'fantasy ';
+        }
+
+        if (category.id == 'O0ogzwLUe8') {
+          template += 'strategy ';
+        }
+
+        if (category.id == '2Gu62aKdma') {
+          template += 'rpg ';
+        }
+
+        if (category.id == 'X8J7RM6dxX') {
+          template += 'party ';
+        }
+
+        if (category.id == 'YGHGDjahKY') {
+          template += 'trivia ';
+        }
+
+        if (category.id == '3B3QpKvXD3') {
+          template += 'scifi ';
+        }
+
+        if (category.id == 'eX8uuNlQkQ') {
+          template += 'card ';
+        }
+
+        if (category.id == 'QAYkTHK1Dd') {
+          template += 'medieval ';
+        }
+
+        if (category.id == 'N0TkEGfEsF') {
+          template += 'economic';
+        }
+
+        if (category.id == 'a8NM5cugJX') {
+          template += 'ancient';
+        }
+
+        if (category.id == 'ODWOjWAJj3') {
+          template += 'city building';
+        }
+
+        if (category.id == 'TKQncFVX74') {
+          template += 'political';
+        }
+
+
+      }
+
+      return template;
+    }
   }
 
 
@@ -34,6 +102,7 @@ export default class HomePage {
   }
 
   appendBoardgames(boardgames) {
+
     console.log(boardgames);
 
     boardgames.sort(function (a, b) {
@@ -44,9 +113,13 @@ export default class HomePage {
     let htmlTemplate = "";
     for (let boardgame of boardgames) {
       htmlTemplate += `
+              
                 <article>
+                <div class="img-container">
                   <a href="#game"><img src="${boardgame.image_url}"></a>
+                  </div>
                   <h4>${boardgame.name}</h4>
+                  <h5>${this.getCategories(boardgame.categories)}</h5>
                 </article>
                 `;
     }
