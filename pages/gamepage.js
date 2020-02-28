@@ -1,6 +1,11 @@
 import boardgameService from "../services/boardgames.js";
+import loaderService from "../services/loader.js";
+import {
+  firebaseDB
+} from "../services/firebase.js"
 export default class GamePage {
   constructor() {
+    this.userRef = firebaseDB.collection("favorites");
     this.boardgamesService = boardgameService;
     this.boardgamesService.loadBoardgames().then(boardgames => {
       this.boardgames = boardgames;
@@ -31,15 +36,22 @@ export default class GamePage {
       document.querySelector(".favoriteButton").innerHTML = /*html*/ `
         <img src="../images/heart-unfilled.svg">
         `;
+      this.userRef.doc(id).delete();
+      console.log("Jeg burde have slettet nu");
     } else {
       document.querySelector(".favoriteButton").innerHTML = /*html*/ `
         <img src="../images/heart.svg">
         `;
+      this.userRef.add({
+        id,
+      });
+      console.log("Jeg burde have added nu");
     }
     this.favorite = !this.favorite;
   }
 
   findGame(boardgames, id) {
+    loaderService.show(true);
     console.log(id);
     let chosenId = id;
     let filteredGames = [];
@@ -55,14 +67,8 @@ export default class GamePage {
 
     document.querySelector(".topbarWithImage").style.backgroundImage = "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.0)), url(" + this.theActualGame.image_url + ")";
 
-    <<
-    << << < HEAD
-      ===
-      === =
-      console.log(this.theActualGame.image_url);
+    console.log(this.theActualGame.image_url);
 
-    >>>
-    >>> > Forside
     document.querySelector(".topbarWithImage").innerHTML = /*html*/ `
       <div class="topbarText">
       <button class="backButton" onclick="history.back()"><img src="../images/back.svg"></button>
@@ -95,6 +101,8 @@ export default class GamePage {
         `;
 
     document.title = this.theActualGame.name + " | Board Game Finder";
+    loaderService.show(false);
   }
+
 
 }
