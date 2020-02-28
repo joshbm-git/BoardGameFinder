@@ -1,4 +1,5 @@
 import boardgameService from "../services/boardgames.js";
+import loaderService from "../services/loader.js";
 import {
   firebaseDB
 } from "../services/firebase.js"
@@ -50,6 +51,7 @@ export default class GamePage {
   }
 
   findGame(boardgames, id) {
+    loaderService.show(true);
     console.log(id);
     let chosenId = id;
     let filteredGames = [];
@@ -99,6 +101,8 @@ export default class GamePage {
         `;
 
     document.title = this.theActualGame.name + " | Board Game Finder";
+    loaderService.show(false);
   }
+
 
 }

@@ -1,4 +1,5 @@
 import boardgameService from "../services/boardgames.js";
+import loaderService from "../services/loader.js";
 import GamePage from "./gamepage.js"
 let gamePage = new GamePage();
 
@@ -98,6 +99,7 @@ export default class HomePage {
   }
 
   appendBoardgames(boardgames) {
+    loaderService.show(true);
     console.log(boardgames);
 
     boardgames.sort(function(a, b) {
@@ -122,6 +124,7 @@ export default class HomePage {
     }
 
     document.querySelector("#grid-boardgames").innerHTML += htmlTemplate;
+    loaderService.show(false);
   }
 
   // search functionality
