@@ -20,6 +20,18 @@ export default class FavoriteService {
                 favorites.push(favorite);
 
             });
+
+            let filteredGames = [];
+            for (let favorite of favorites) {
+                let gameId = favorite.id;
+                console.log(favorite.id)
+                if (favorites.includes(gameId)) {
+                    filteredGames.push(favorite);
+                }
+
+            }
+
+            console.log(filteredGames);
             this.appendFavorites(favorites)
         });
     }
@@ -30,30 +42,46 @@ export default class FavoriteService {
               <header class="topbar">
                 <h2>Favoritter</h2>
               </header>
+              
               <div id="favoriteInfo">
              </div>
+             
+             
 
               
             </section>
 
           `;
     }
-
+    findGames(favorites) {
+        console.log(favorites);
+        let chosenId = id;
+        let filteredGames = [];
+        for (let boardgame of boardgames) {
+            let gameId = boardgame.id;
+            if (gameId.includes(chosenId)) {
+                filteredGames.push(boardgame);
+            }
+        }
+        this.theActualGame = filteredGames[0];
+        console.log(this.theActualGame);
+    }
     // append favorites to the DOM
     appendFavorites(favorites) {
         for (let favorite of favorites) {
             document.getElementById('favoriteInfo').innerHTML += /*html*/ `
+            
         <div class="favoriteWrapper">
-        <img src="${favorite.img}">
+        <img src="${favorite.image_url}">
         <div class="favoriteInfoWrapper">
         <h2><strong>${favorite.name}</strong></h2>
         <div class="favoriteCategories">
-        <p>${favorite.categories[0]},</p>
-        <p>${favorite.categories[1]}...</p>
+        
         </div>
         </div>
         </div>
         <hr>
+        
 
       `;
         }

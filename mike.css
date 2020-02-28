@@ -76,7 +76,7 @@ h3 {
 .page {
     display: none;
     /*min heigh is screen heigh minus height of tab and top bar */
-    min-height: calc(100vh - 110px);
+    min-height: calc(100svh - 110px);
     background: #fff;
     animation: fadeIn 0.4s;
     /* padding equals height of tabbar and topbar */
@@ -216,8 +216,12 @@ select {
 /* --------------------------------------------------------------------------- */
 /* Custom css */
 .topbar {
-    background-color: red;
+    background-image: linear-gradient(to left bottom, #f7718d, #fec771);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: 1em;
     font-size: 0.9em;
+
 }
 
 /* ---------- tabbar styling ---------- */
@@ -312,28 +316,34 @@ select {
 /* --------------------------------------------------------------------------- */
 /* CSS by Mike */
 
-#favoriteInfo {
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
-    border-radius: 20px;
-    text-align: center;
-}
-
-#favoriteInfoWrapper {
-    display: flex;
-    max-width: 320px;
-    margin: auto;
-    padding: 0.3em 0.3em;
-    justify-content: space-between;
-}
 
 #favoriteInfo img {
-    width: 20%;
+    width: 100%;
+    max-width: 20%;
 
+}
+
+#favoriteInfo h2 {
+    font-size: 1.3em;
+    text-align: left;
 }
 
 #favoriteInfo p {
-    font-size: 0.8em;
+    margin-right: 0.25em;
+    font-size: 1em;
+}
+
+.favoriteWrapper {
+    display: flex;
     padding: 1em;
+
+}
+
+.favoriteInfoWrapper {
+
+    margin-left: 1em;
+}
+
+.favoriteCategories {
+    display: flex;
 }
