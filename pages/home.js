@@ -79,7 +79,7 @@ export default class HomePage {
 
   template() {
     document.getElementById("content").innerHTML += /*html*/ `
-      <section id="home" class="page-forside">
+      <section id="home" class="page page-forside">
         <header>
           <img src="../images/logo.png" class="logo">
         </header>

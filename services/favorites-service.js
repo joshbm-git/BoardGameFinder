@@ -41,7 +41,6 @@ export default class FavoriteService {
 
     // append favorites to the DOM
     appendFavorites(favorites) {
-        let htmlTemplate = "";
         for (let favorite of favorites) {
             document.getElementById('favoriteInfo').innerHTML += /*html*/ `
         <div class="favoriteWrapper">
