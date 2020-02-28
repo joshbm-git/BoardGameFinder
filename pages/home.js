@@ -1,4 +1,7 @@
 import boardgameService from "../services/boardgames.js";
+import GamePage from "./gamepage.js"
+let gamePage = new GamePage();
+
 export default class HomePage {
   constructor() {
     this.template();
@@ -15,7 +18,6 @@ export default class HomePage {
       this.chosenGame = "RLlDWHh7hR";
     });
   }
-  // hej
   getCategories(categories) {
     if (categories) {
       let template = "";
@@ -79,13 +81,13 @@ export default class HomePage {
 
   template() {
     document.getElementById("content").innerHTML += /*html*/ `
-      <section id="home" class="page-forside">
+      <section id="home" class="page page-forside">
         <header>
           <img src="../images/logo.png" class="logo">
         </header>
 
         <input type="text" placeholder="Søg her.." onkeyup="search(this.value)">
-        
+
         <div class="grid-wrapper">
         <h3>Mest populære brætspil</h3>
         <div id="grid-boardgames" class="grid-container"></div>
@@ -97,45 +99,27 @@ export default class HomePage {
   appendBoardgames(boardgames) {
     console.log(boardgames);
 
-    boardgames.sort(function (a, b) {
-      return b.average_user_rating
-        .toString()
-        .localeCompare(a.average_user_rating.toString());
+    boardgames.sort(function(a, b) {
+      return b.average_user_rating.toString().localeCompare(a.average_user_rating.toString());
     });
 
     document.querySelector("#grid-boardgames").innerHTML = "";
     let htmlTemplate = "";
     for (let boardgame of boardgames) {
       htmlTemplate += /*html*/ `
-              
-                <article>
-                <div class="img-container">
-                <a href="#game"><img src="${boardgame.image_url}" onclick="setChosenGame('${boardgame.id}')"></a>
-                  </div>
 
                 <article>
+                <div class="img-container">
+                <a href="#game"><img src="${boardgame.images.small}" onclick="setChosenGame('${boardgame.id}')"></a>
+                  </div>
                   <h4>${boardgame.name}</h4>
                   <h5>${this.getCategories(boardgame.categories)}</h5>
-                </article>
                 </article>
                 `;
     }
 
     document.querySelector("#grid-boardgames").innerHTML += htmlTemplate;
   }
-  /*   appendBoardgames(boardgames) {
-        let points = [];
-        for (let boardgame of this.boardgames) {
-
-            points.push(boardgame.average_user_rating);
-        }
-
-        points.sort();
-        points.reverse();
-        console.log(points);
-
-
-    } */
 
   // search functionality
   search(value) {
