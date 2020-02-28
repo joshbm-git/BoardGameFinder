@@ -2,38 +2,18 @@ import {
     firebaseDB
 } from "./firebase.js"
 
+import boardgameService from "./boardgames.js";
+
 export default class FavoriteService {
     constructor() {
         this.favoriteRef = firebaseDB.collection("favorites");
         this.read();
         this.template();
-    }
-    // ========== READ ==========
-    // watch the database ref for changes
-    read() {
-        this.favoriteRef.onSnapshot(snapshotData => {
-            let favorites = [];
-
-            snapshotData.forEach(doc => {
-                let favorite = doc.data();
-                favorite.id = doc.id;
-                favorites.push(favorite);
-
-            });
-
-            let filteredGames = [];
-            for (let favorite of favorites) {
-                let gameId = favorite.id;
-                console.log(favorite.id)
-                if (favorites.includes(gameId)) {
-                    filteredGames.push(favorite);
-                }
-
-            }
-
-            console.log(filteredGames);
-            this.appendFavorites(favorites)
+        this.boardgamesService = boardgameService;
+        this.boardgamesService.loadBoardgames().then(boardgames => {
+            this.boardgames = boardgames;
         });
+
     }
 
     template() {
@@ -53,28 +33,34 @@ export default class FavoriteService {
 
           `;
     }
-    findGames(favorites) {
-        console.log(favorites);
-        let chosenId = id;
-        let filteredGames = [];
-        for (let boardgame of boardgames) {
-            let gameId = boardgame.id;
-            if (gameId.includes(chosenId)) {
-                filteredGames.push(boardgame);
-            }
-        }
-        this.theActualGame = filteredGames[0];
-        console.log(this.theActualGame);
+    // ========== READ ==========
+    // watch the database ref for changes
+    read() {
+        this.favoriteRef.onSnapshot(snapshotData => {
+            let favorites = [];
+
+            snapshotData.forEach(doc => {
+                let favorite = doc.data();
+                favorite.id = doc.id;
+                favorites.push(favorite);
+
+
+            });
+            this.appendFavorites(favorites)
+        });
     }
+
     // append favorites to the DOM
     appendFavorites(favorites) {
+
+
+
         for (let favorite of favorites) {
             document.getElementById('favoriteInfo').innerHTML += /*html*/ `
             
         <div class="favoriteWrapper">
-        <img src="${favorite.image_url}">
         <div class="favoriteInfoWrapper">
-        <h2><strong>${favorite.name}</strong></h2>
+        <h2><strong>${favorite.id}</strong></h2>
         <div class="favoriteCategories">
         
         </div>
@@ -85,8 +71,33 @@ export default class FavoriteService {
 
       `;
         }
-        console.log(favorites);
+
     }
 
+    /* 
+                               let filteredGames = [];
+                               for (let boardgame of this.boardgames) {
+                                   let gameId = favorite.id;
 
+                                   if (boardgame.id.includes(gameId)) {
+                                       filteredGames.push(boardgame);
+                                   }
+           console.log(filteredGames);
+           
+          
+                               } */
+
+    findGames(favorites) {
+        /*        console.log(favorites); */
+        let chosenId = id;
+        let filteredGames = [];
+        for (let boardgame of boardgames) {
+            let gameId = boardgame.id;
+            if (gameId.includes(chosenId)) {
+                filteredGames.push(boardgame);
+            }
+        }
+        this.theActualGame = filteredGames[0];
+        /*         console.log(this.theActualGame); */
+    }
 }
