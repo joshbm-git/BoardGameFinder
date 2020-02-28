@@ -21,6 +21,8 @@ class SpaService {
     this.hideAllPages();
     document.querySelector(`#${pageId}`).style.display = "block";
     this.setActiveTab(pageId);
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }
 
   // sets active tabbar/ menu item
@@ -37,6 +39,8 @@ class SpaService {
   // navigate to a new view/page by changing href
   navigateTo(pageId) {
     window.location.href = `#${pageId}`;
+
+
   }
 
   // set default page or given page by the hash url

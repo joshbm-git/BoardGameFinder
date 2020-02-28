@@ -82,11 +82,12 @@ export default class HomePage {
   template() {
     document.getElementById("content").innerHTML += /*html*/ `
       <section id="home" class="page page-forside">
-        <header>
-          <img src="../images/logo.png" class="logo">
+        <header class="forsideHeader">
+          <img src="../images/logo.png">
+          <input type="text" placeholder="Søg her.." onkeyup="search(this.value)">
         </header>
 
-        <input type="text" placeholder="Søg her.." onkeyup="search(this.value)">
+
 
         <div class="grid-wrapper">
         <h3>Mest populære brætspil</h3>
@@ -112,8 +113,10 @@ export default class HomePage {
                 <div class="img-container">
                 <a href="#game"><img src="${boardgame.images.small}" onclick="setChosenGame('${boardgame.id}')"></a>
                   </div>
+                  <div class ="text-container">
                   <h4>${boardgame.name}</h4>
                   <h5>${this.getCategories(boardgame.categories)}</h5>
+                  </div>
                 </article>
                 `;
     }
