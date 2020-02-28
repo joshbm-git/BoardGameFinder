@@ -82,13 +82,13 @@ export default class HomePage {
         filteredGames.push(boardgame);
       }
     }
-    console.log(filteredGames);
+    /*     console.log(filteredGames); */
     this.appendBoardgames(filteredGames);
   }
 
   setChosenGame(id) {
     this.chosenGame = id;
-    console.log(this.chosenGame);
+    /* console.log(this.chosenGame); */
 
   }
 }
