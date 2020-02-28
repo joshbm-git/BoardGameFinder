@@ -7,7 +7,7 @@ export default class GamePage {
       this.findGame(boardgames, this.chosenGame);
     });
     this.chosenGame = "oGVgRSAKwX";
-    this.theActualGame = []
+    this.theActualGame = [];
     this.template();
     this.favorite = false;
   }
@@ -57,14 +57,14 @@ export default class GamePage {
     /* 
         console.log(this.theActualGame.image_url); */
 
-    document.querySelector(".topbarWithImage").innerHTML += /*html*/ `
+    document.querySelector(".topbarWithImage").innerHTML = /*html*/ `
       <div class="topbarText">
-      <button class="backButton" onclick=""><img src="../images/back.svg"></button>
+      <button class="backButton" onclick="history.back()"><img src="../images/back.svg"></button>
       <h2>${this.theActualGame.name}</h2>
       <button class="favoriteButton" onclick="addFavorite('${this.chosenGame}')"><img src="../images/heart-unfilled.svg"></button>
       </div>
       `;
-    document.querySelector("#gameInfo").innerHTML += /*html*/ `
+    document.querySelector("#gameInfo").innerHTML = /*html*/ `
       <div id="gameInfoWrapper">
       <div class="pieceOfGameInfo">
       <img src="../images/user.svg" alt="Number of Players">
@@ -80,7 +80,7 @@ export default class GamePage {
       </div>
       </div>
       `;
-    document.querySelector("#gameDescription").innerHTML += /*html*/ `
+    document.querySelector("#gameDescription").innerHTML = /*html*/ `
     <h3>Description</h3>
     <p>${this.theActualGame.description}</p>
     <p><strong>Year published:</strong> ${this.theActualGame.year_published}</p>

@@ -1,0 +1,98 @@
+/* --------------------------------------------------------------------------- */
+/* CSS Sander */
+.page-forside {
+  background-image: linear-gradient(to left bottom, #f7718d, #fec771);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-top: 0;
+}
+
+.topbar-forside {
+  background-color: none;
+  color: var(--text-color-light);
+  padding: 13.5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.topbar-forside h2 {
+  margin: 0;
+  font-weight: 300;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.grid-wrapper {
+  background-color: white;
+  margin: 0px 15px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.grid-container article {
+  text-align: center;
+  padding: 10px;
+  background: white;
+}
+
+.img-container {
+  border: solid 2px white;
+  border-radius: 15px;
+  box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.2);
+  height: 160px;
+  line-height: 160px;
+  padding: 5px;
+}
+
+.grid-container article img {
+  margin: 0;
+  text-align: center;
+  vertical-align: middle;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+}
+
+.grid-container article h4 {
+  margin: 0;
+  margin-top: 20px;
+}
+
+.grid-container article h5 {
+  font-size: 0.8em;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 0px;
+}
+
+.grid-wrapper h3 {
+  letter-spacing: normal;
+  font-weight: 900;
+  font-size: 1.4em;
+  margin-top: 48px;
+}
+
+input,
+select {
+  margin: 1em auto;
+  width: 100%;
+  max-width: 350px;
+  padding: 15px 15px;
+  box-sizing: border-box;
+  display: block;
+  border: 0;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.logo {
+  width: 100%;
+  max-width: 325px;
+  margin: 0 20px;
+  margin-top: 28px;
+}
