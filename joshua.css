@@ -1,6 +1,23 @@
 /* ---------- Filter(Joshua) ---------- */
+#filter {
+    padding-bottom: 0;
+}
+
 .filter-wrapper {
-    padding: 1em;
+    min-height: 60vh;
+}
+
+.filter-wrapper h2 {
+    font-size: 1.4em;
+    white-space: nowrap;
+}
+
+.main-wrapper {
+    background-color: white;
+    margin: 0px 15px;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
 }
 
 .grid-system {
@@ -12,13 +29,18 @@
 }
 
 .box {
-    width: 100%;
-    height: 5em;
+    width: 125px;
+    height: 75px;
     background-color: white;
-    border-radius: 10px;
-    border: solid;
-    font-size: 1em;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.2);
+    font-size: 1.75em;
     font-weight: bold;
+}
+
+#genres .box {
+    font-size: 1em;
 }
 
 #boardgames {

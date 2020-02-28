@@ -1,6 +1,11 @@
 import boardgameService from "../services/boardgames.js";
+import {
+  firebaseDB
+} from "../services/firebase.js";
+
 export default class GamePage {
   constructor() {
+    this.bgRef = firebaseDB.collection("favorites");
     this.boardgamesService = boardgameService;
     this.boardgamesService.loadBoardgames().then(boardgames => {
       this.boardgames = boardgames;
@@ -21,23 +26,46 @@ export default class GamePage {
         </section>
         <section id="gameDescription">
         </section>
+     
       </section>
     `;
   }
-
-  addFavorite(id) {
-    console.log(id);
-    if (this.favorite) {
-      document.querySelector(".favoriteButton").innerHTML = /*html*/ `
-        <img src="../images/heart-unfilled.svg">
-        `;
-    } else {
-      document.querySelector(".favoriteButton").innerHTML = /*html*/ `
-        <img src="../images/heart.svg">
-        `;
+  /* 
+     ${this.generateFavBgButton(this.chosenGame)}
+    generateFavBgButton(bgId) {
+      let btnTemplate = `
+        <button onclick="addToFavourites('${bgId}')">Add to favourites</button>`;
+      if (this.userHasFav(bgId)) {
+        btnTemplate = `
+          <button onclick="removeFromFavourites('${bgId}')" class="rm">Remove from favourites</button>`;
+      }
+      return btnTemplate;
     }
-    this.favorite = !this.favorite;
-  }
+
+    userHasFav(favBgId) {
+      if (authService.authUser.favBg && authService.authUser.favBg.includes(favBgId)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    // adds a given movieId to the favMovies array inside _currentUser
+    addToFavourites(bgId) {
+      authUserRef.set({
+        favBg: firebase.firestore.FieldValue.arrayUnion(bgId)
+      }, {
+        merge: true
+      });
+    }
+
+    // removes a given movieId to the favMovies array inside _currentUser
+    removeFromFavourites(bgId) {
+      authUserRef.update({
+        favBg: firebase.firestore.FieldValue.arrayRemove(bgId)
+      });
+    }
+   */
 
   findGame(boardgames, id) {
     console.log(id);

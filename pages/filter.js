@@ -1,4 +1,5 @@
 import boardgameService from "../services/boardgames.js";
+import loaderService from "../services/loader.js";
 export default class FilterPage {
   constructor() {
     this.template();
@@ -16,13 +17,13 @@ export default class FilterPage {
 
   template() {
     document.getElementById('content').innerHTML += /*html*/ `
-        <section id="filter" class="page">
-          <header class="topbar">
+        <section id="filter" class="page gradientBg">
+          <header class="topbar gradientBg">
             <h2>Find det mest ideelle brætspil</h2>
           </header>
-          <div class="filter-wrapper">
-            <h2>Hvor mange spiller er I?</h2>
-            <div class="grid-system" id="players">
+          <div class="filter-wrapper main-wrapper">
+            <h2>Hvor mange spillere er I?</h2>
+            <article class="grid-system" id="players">
               <button class="box" onclick="setPlayer(1);addPlaytime();">1</button>
               <button class="box" onclick="setPlayer(2);addPlaytime();">2</button>
               <button class="box" onclick="setPlayer(3);addPlaytime();">3</button>
@@ -32,7 +33,7 @@ export default class FilterPage {
               <button class="box" onclick="setPlayer(7);addPlaytime();">7</button>
               <button class="box" onclick="setPlayer(8);addPlaytime();">8+</button>
               </div>
-           </div>
+           </article>
         </section>
       `;
   }
@@ -42,7 +43,7 @@ export default class FilterPage {
   addPlaytime() {
     document.querySelector(".filter-wrapper").innerHTML = /*html*/ `
     <h2>Hvor længe vil I ca. spille?</h2>
-    <div class="grid-system" id="playtime">
+    <article class="grid-system" id="playtime">
     <button class="box" onclick="setPlaytime(15);addGenre();">15</button>
     <button class="box" onclick="setPlaytime(30);addGenre();">30</button>
     <button class="box" onclick="setPlaytime(60);addGenre();">60</button>
@@ -51,14 +52,14 @@ export default class FilterPage {
     <button class="box" onclick="setPlaytime(150);addGenre();">150</button>
     <button class="box" onclick="setPlaytime(180);addGenre();">180</button>
     <button class="box" onclick="setPlaytime(180);addGenre();">180+</button>
-    </div>
+    </article>
   `;
   }
 
   addGenre() {
     document.querySelector(".filter-wrapper").innerHTML = /*html*/ `
     <h2>Vælg en genre</h2>
-    <div class="grid-system" id="genres">
+    <article class="grid-system" id="genres">
     <button class="box" onclick="setGenre('hBqZ3Ar4RJ');appendBoardgames();">Abstract</button>
     <button class="box" onclick="setGenre('KUBCKBkGxV');appendBoardgames();">Adventure</button>
     <button class="box" onclick="setGenre('ge8pIhEUGE');appendBoardgames();">Cooperative</button>
@@ -67,15 +68,17 @@ export default class FilterPage {
     <button class="box" onclick="setGenre('2Gu62aKdma');appendBoardgames();">Role Playing</button>
     <button class="box" onclick="setGenre('3B3QpKvXD3');appendBoardgames();">Sci-fi</button>
     <button class="box" onclick="setGenre('O0ogzwLUe8');appendBoardgames();">Strategy</button>
-    </div> 
+    </article> 
   `;
   }
 
   filterAll() {
+    loaderService.show(true);
     for (let boardgame of this.boardgames) {
       if (this.players >= boardgame.min_players && this.players <= boardgame.max_players) {
         if (this.playtime >= boardgame.min_playtime && this.playtime <= boardgame.max_playtime) {
           if (this.genreIncl(boardgame.categories, this.genre)) {
+
             this.filteredBoardgames.push(boardgame)
           }
         }
@@ -98,81 +101,33 @@ export default class FilterPage {
   }
 
   appendBoardgames() {
-    if (this.filteredBoardgames.length == 0) {
+
+    if (this.filteredBoardgames.length > 0) {
+
       document.querySelector(".filter-wrapper").innerHTML = /*html*/ `
       <h2>Vi fandt ${this.filteredBoardgames.length} matches</h2>
-      <a href="#favorites"><img src="images/heart.svg" alt="Heart icon"></a>
     `
+      for (let boardgame of this.filteredBoardgames) {
+        document.querySelector(".filter-wrapper").innerHTML += /*html*/ `
+      <div class="boardgame">
+      <figure>
+        <img src="${boardgame.images.original}">  
+      </figure>
+      <h2>${boardgame.name}</h2>
+    <div>
+      `
+      }
+    } else {
+      document.querySelector(".filter-wrapper").innerHTML = /*html*/ `
+      <h2>Vi fandt ${this.filteredBoardgames.length} matches</h2>
+          <button class="box" onclick="location.reload();"><a href="#filter">Prøv igen</a></button>
+    `
+
+      loaderService.show(false);
     }
-    document.querySelector(".filter-wrapper").innerHTML = /*html*/ `
-    <h2>Vi fandt ${this.filteredBoardgames.length} matches</h2>
-  `
-    for (let boardgame of this.filteredBoardgames) {
-      document.querySelector(".filter-wrapper").innerHTML += /*html*/ `
-    <div class="boardgame">
-    <figure>
-      <img src="${boardgame.images.original}">  
-    </figure>
-    <h2>${boardgame.name}</h2>
-  <div>
-    `
-    };
+
   }
 }
-
-/* <div class="filter-wrapper">
-<h2>Hvor mange spiller er I?</h2>
-<div class="grid-system" id="players">
-  <button class="box" onclick="setPlayer(1);addPlaytime();">1</button>
-  <button class="box" onclick="setPlayer(2);addPlaytime();">2</button>
-  <button class="box" onclick="setPlayer(3);addPlaytime();">3</button>
-  <button class="box" onclick="setPlayer(4);addPlaytime();">4</button>
-  <button class="box" onclick="setPlayer(5);addPlaytime();">5</button>
-  <button class="box" onclick="setPlayer(6);addPlaytime();">6</button>
-  <button class="box" onclick="setPlayer(7);addPlaytime();">7</button>
-  <button class="box" onclick="setPlayer(8);addPlaytime();">8+</button>
-  </div>
-</div>
- */
-
-//optional todo: spring over
-
-/*   
-
-<div class="grid-system" id="playtime">
-  <button class="box" onclick="setPlaytime(15)">15</button>
-  <button class="box" onclick="setPlaytime(30)">30</button>
-  <button class="box" onclick="setPlaytime(60)">60</button>
-  <button class="box" onclick="setPlaytime(90)">90</button>
-  <button class="box" onclick="setPlaytime(120)">120</button>
-  <button class="box" onclick="setPlaytime(150)">150</button>
-  <button class="box" onclick="setPlaytime(180)">180</button>
-  <button class="box" onclick="setPlaytime(180)">180+</button>
-  </div>
-  <div id="genres">
-  <button class="box" onclick="setGenre(1)">1</button>
-  <button class="box" onclick="setGenre(2)">2</button>
-  <button class="box" onclick="setGenre(3)">3</button>
-  <button class="box" onclick="setGenre(4)">4</button>
-  <button class="box" onclick="setGenre(5)">5</button>
-  <button class="box" onclick="setGenre(6)">6</button>
-  <button class="box" onclick="setGenre(7)">7</button>
-  <button class="box" onclick="setGenre(8)">8+</button>
-  </div> */
-
-
-
-/*   
-    
-
-document.querySelector("#grid-filtered-boardgames").innerHTML += `
-            <article>
-              <img src="${boardgame.image_url}">
-              <h4>${boardgame.name}</h4>
-            </article>
-            `;
-     */
-
 
 //todo:
 //  players on click ->> return board games with x min player count

@@ -35,7 +35,6 @@ h3 {
 /* ---------- topbar styling ---------- */
 .topbar {
   /* background-color: var(--green); */
-  background-color: red;
   color: var(--text-color-light);
   padding: 13.5px;
   position: fixed;
@@ -80,7 +79,7 @@ h3 {
   background: #fff;
   animation: fadeIn 0.4s;
   /* padding equals height of tabbar and topbar */
-  padding: 55px 0;
+  padding: 5em 0;
 }
 
 /* ---------- animations ---------- */
@@ -130,7 +129,7 @@ h3 {
 .hide {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s 0.4s, opacity 0.4s linear;
+  transition: visibility 0s 0s, opacity 0s linear;
 }
 
 @keyframes spin {
@@ -222,4 +221,11 @@ form button {
 }
 
 /* --------------------------------------------------------------------------- */
-/* CSS by Jacob */
+/* gradient with box design*/
+
+.gradientBg {
+  background-image: linear-gradient(to left bottom, #f7718d, #fec771);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
