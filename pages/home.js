@@ -1,6 +1,5 @@
 import boardgameService from "../services/boardgames.js";
 import GamePage from "./gamepage.js"
-let gamePage = new GamePage();
 
 export default class HomePage {
   constructor() {
@@ -97,9 +96,9 @@ export default class HomePage {
   }
 
   appendBoardgames(boardgames) {
-    console.log(boardgames);
+    /*     console.log(boardgames); */
 
-    boardgames.sort(function(a, b) {
+    boardgames.sort(function (a, b) {
       return b.average_user_rating.toString().localeCompare(a.average_user_rating.toString());
     });
 
@@ -136,8 +135,5 @@ export default class HomePage {
     this.appendBoardgames(filteredGames);
   }
 
-  setChosenGame(id) {
-    this.chosenGame = id;
-    console.log(this.chosenGame);
-  }
+
 }

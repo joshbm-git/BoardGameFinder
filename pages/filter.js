@@ -71,39 +71,6 @@ export default class FilterPage {
   `;
   }
 
-
-
-  /* 
-    filterPlayers() {
-      for (let boardgame of this.boardgames) {
-
-        if (this.players >= boardgame.min_players && this.players <= boardgame.max_players) {
-          this.filteredBoardgames.push(boardgame)
-        }
-
-      }
-      console.log(this.filteredBoardgames)
-    }
-
-    filterPlaytime() {
-      for (let boardgame of this.boardgames) {
-
-        if (this.playtime >= boardgame.min_playtime && this.playtime <= boardgame.max_playtime) {
-          this.filteredBoardgames.push(boardgame)
-
-        }
-      }
-    }
-
-    filterGenres() {
-      for (let boardgame of this.boardgames) {
-
-        if (this.genre == boardgame.categories.id) {
-          this.filteredBoardgames.push(boardgame)
-        }
-      }
-    } */
-
   filterAll() {
     for (let boardgame of this.boardgames) {
       if (this.players >= boardgame.min_players && this.players <= boardgame.max_players) {
@@ -131,6 +98,12 @@ export default class FilterPage {
   }
 
   appendBoardgames() {
+    if (this.filteredBoardgames.length == 0) {
+      document.querySelector(".filter-wrapper").innerHTML = /*html*/ `
+      <h2>Vi fandt ${this.filteredBoardgames.length} matches</h2>
+      <a href="#favorites"><img src="images/heart.svg" alt="Heart icon"></a>
+    `
+    }
     document.querySelector(".filter-wrapper").innerHTML = /*html*/ `
     <h2>Vi fandt ${this.filteredBoardgames.length} matches</h2>
   `
