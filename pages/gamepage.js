@@ -5,7 +5,7 @@ import {
 } from "../services/firebase.js"
 export default class GamePage {
   constructor() {
-    this.userRef = firebaseDB.collection("favorites");
+    this.bgRef = firebaseDB.collection("favorites");
     this.boardgamesService = boardgameService;
     this.boardgamesService.loadBoardgames().then(boardgames => {
       this.boardgames = boardgames;
@@ -28,6 +28,16 @@ export default class GamePage {
       </section>
     `;
   }
+  create(id) {
+    this.bgRef.doc(id).set({
+      id
+    });
+  }
+
+  delete(id) {
+    this.bgRef.doc(id).delete();
+  }
+
 
   addFavorite(id) {
     console.log(id);
@@ -35,15 +45,14 @@ export default class GamePage {
       document.querySelector(".favoriteButton").innerHTML = /*html*/ `
         <img src="../images/heart-unfilled.svg">
         `;
-      this.userRef.doc(id).delete();
+      this.delete(id)
       console.log("Jeg burde have slettet nu");
     } else {
       document.querySelector(".favoriteButton").innerHTML = /*html*/ `
         <img src="../images/heart.svg">
         `;
-      this.userRef.add({
-        id,
-      });
+
+      this.create(id)
       console.log("Jeg burde have added nu");
     }
     this.favorite = !this.favorite;
@@ -72,7 +81,7 @@ export default class GamePage {
       <div class="topbarText">
       <button class="backButton" onclick="history.back()"><img src="../images/back.svg"></button>
       <h2>${this.theActualGame.name}</h2>
-      <button class="favoriteButton" onclick="addFavorite('${this.chosenGame}')"><img src="../images/heart-unfilled.svg"></button>
+      <button class="favoriteButton" onclick="addFavorite('${id}')"><img src="../images/heart-unfilled.svg"></button>
       </div>
       `;
     document.querySelector("#gameInfo").innerHTML = /*html*/ `
