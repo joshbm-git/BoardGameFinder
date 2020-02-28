@@ -12,20 +12,18 @@ export default class FilterPage {
           <header class="topbar">
             <h2>Find det mest ideelle brætspil</h2>
           </header>
-
-          <div id="grid-boardgames" class="grid-container"></div>
         </section>
       `;
   }
 
   appendBoardgames(boardgames) {
-    for (let boardgame of boardgames) {
-      document.querySelector("#grid-boardgames").innerHTML += /*html*/ `
-        <article>
-          <img src="${boardgame.image_url}">
-          <h4>${boardgame.name}</h4>
-        </article>
-        `;
-    }
+    //   for (let boardgame of boardgames) {
+    //     document.querySelector("#grid-boardgames").innerHTML += /*html*/ `
+    //       <article>
+    //         <img src="${boardgame.image_url}">
+    //         <h4>${boardgame.name}</h4>
+    //       </article>
+    //       `;
+    //   }
   }
 }

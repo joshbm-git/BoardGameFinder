@@ -9,9 +9,8 @@ export default class GamePage {
     this.boardgamesService = boardgameService;
     this.boardgamesService.loadBoardgames().then(boardgames => {
       this.boardgames = boardgames;
-      this.findGame(boardgames, this.chosenGame);
     });
-    this.chosenGame = "oGVgRSAKwX";
+    this.chosenGame = "";
     this.theActualGame = [];
     this.template();
     this.favorite = false;
@@ -50,12 +49,12 @@ export default class GamePage {
     this.favorite = !this.favorite;
   }
 
-  findGame(boardgames, id) {
+  findGame(id) {
     loaderService.show(true);
     console.log(id);
     let chosenId = id;
     let filteredGames = [];
-    for (let boardgame of boardgames) {
+    for (let boardgame of this.boardgames) {
       let gameId = boardgame.id;
       if (gameId.includes(chosenId)) {
         filteredGames.push(boardgame);
