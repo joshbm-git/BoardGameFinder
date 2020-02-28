@@ -6,7 +6,7 @@ export default class GamePage {
       this.boardgames = boardgames;
       this.findGame(boardgames, this.chosenGame);
     });
-    this.chosenGame = "RLlDWHh7hR";
+    this.chosenGame = "oGVgRSAKwX";
     this.theActualGame = [];
     this.template();
     this.favorite = false;
@@ -55,6 +55,14 @@ export default class GamePage {
 
     document.querySelector(".topbarWithImage").style.backgroundImage = "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.0)), url(" + this.theActualGame.image_url + ")";
 
+    <<
+    << << < HEAD
+      ===
+      === =
+      console.log(this.theActualGame.image_url);
+
+    >>>
+    >>> > Forside
     document.querySelector(".topbarWithImage").innerHTML = /*html*/ `
       <div class="topbarText">
       <button class="backButton" onclick="history.back()"><img src="../images/back.svg"></button>

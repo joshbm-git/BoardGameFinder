@@ -17,81 +17,102 @@ export default class HomePage {
       this.cat_trivia = "YGHGDjahKY";
       this.chosenGame = "RLlDWHh7hR";
     });
-
   }
+  getCategories(categories) {
+      if (categories) {
+        let template = "";
+        for (const category of categories) {
+          if (category.id == "KUBCKBkGxV") {
+            template += "Adventure, ";
+          }
 
-  template() {
-    document.getElementById('content').innerHTML += /*html*/ `
-      <section id="home" class="page">
-        <header class="topbar">
-          <h2>Bedste brætspil lige nu</h2>
+          if (category.id == "ZTneo8TaIO") {
+            template += "Fantasy, ";
+          }
+
+          if (category.id == "O0ogzwLUe8") {
+            template += "Strategy, ";
+          }
+
+          if (category.id == "2Gu62aKdma") {
+            template += "RPG, ";
+          }
+
+          if (category.id == "X8J7RM6dxX") {
+            template += "Party, ";
+          }
+
+          template() {
+            document.getElementById("content").innerHTML += /*html*/ `
+      <section id="home" class="page page-forside">
+        <header class="forsideHeader">
+          <img src="../images/logo.png">
+          <input type="text" placeholder="Søg her.." onkeyup="search(this.value)">
         </header>
 
-        <input type="text" placeholder="Søg her.." onkeyup="search(this.value)">
-        <h3>Mest populære brætspil</h3>
 
+
+        <div class="grid-wrapper">
+        <h3>Mest populære brætspil</h3>
         <div id="grid-boardgames" class="grid-container"></div>
+        </div>
       </section>
     `;
+          }
 
-  }
+          appendBoardgames(boardgames) {
+            console.log(boardgames);
 
-  appendBoardgames(boardgames) {
-    console.log(boardgames);
+            boardgames.sort(function(a, b) {
+              return b.average_user_rating.toString().localeCompare(a.average_user_rating.toString());
+            });
 
-    boardgames.sort(function(a, b) {
-      return b.average_user_rating.toString().localeCompare(a.average_user_rating.toString());
-    });
+            document.querySelector("#grid-boardgames").innerHTML = "";
+            let htmlTemplate = "";
+            for (let boardgame of boardgames) {
+              htmlTemplate += /*html*/ `
 
-    document.querySelector("#grid-boardgames").innerHTML = '';
-    let htmlTemplate = "";
-    for (let boardgame of boardgames) {
-      htmlTemplate += /*html*/ `
                 <article>
-                  <a href="#game"><img src="${boardgame.image_url}" onclick="setChosenGame('${boardgame.id}')"></a>
+                <div class="img-container">
+                <a href="#game"><img src="${boardgame.images.small}" onclick="setChosenGame('${boardgame.id}')"></a>
+                  </div>
+                  <div class ="text-container">
                   <h4>${boardgame.name}</h4>
+                  <h5>${this.getCategories(boardgame.categories)}</h5>
+                  </div>
                 </article>
                 `;
-    }
+            }
 
+            document.querySelector("#grid-boardgames").innerHTML += htmlTemplate;
+          }
 
+          // search functionality
+          search(value) {
+            console.log(value);
+            let searchQuery = value.toLowerCase();
+            let filteredGames = [];
+            for (let boardgame of this.boardgames) {
+              let title = boardgame.name.toLowerCase();
+              if (title.includes(searchQuery)) {
+                filteredGames.push(boardgame);
+              }
+            }
+            console.log(filteredGames);
+            this.appendBoardgames(filteredGames);
+          }
 
+          setChosenGame(id) {
+            <<
+            << << < HEAD
+            gamePage.chosenGame = id;
+            console.log(gamePage.chosenGame);
 
-    document.querySelector("#grid-boardgames").innerHTML += htmlTemplate;
-  }
-  /*   appendBoardgames(boardgames) {
-        let points = [];
-        for (let boardgame of this.boardgames) {
+            ===
+            === =
+            this.chosenGame = id;
+            console.log(this.chosenGame); >>>
+            >>> > Forside
+          }
 
-            points.push(boardgame.average_user_rating);
         }
-
-        points.sort();
-        points.reverse();
-        console.log(points);
-
-
-    } */
-
-  // search functionality
-  search(value) {
-    console.log(value);
-    let searchQuery = value.toLowerCase();
-    let filteredGames = [];
-    for (let boardgame of this.boardgames) {
-      let title = boardgame.name.toLowerCase();
-      if (title.includes(searchQuery)) {
-        filteredGames.push(boardgame);
-      }
-    }
-    console.log(filteredGames);
-    this.appendBoardgames(filteredGames);
-  }
-
-  setChosenGame(id) {
-    gamePage.chosenGame = id;
-    console.log(gamePage.chosenGame);
-
-  }
-
-}
