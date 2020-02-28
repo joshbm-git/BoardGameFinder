@@ -1,6 +1,10 @@
 import boardgameService from "../services/boardgames.js";
+import {
+  firebaseDB
+} from "../services/firebase.js"
 export default class GamePage {
   constructor() {
+    this.userRef = firebaseDB.collection("favorites");
     this.boardgamesService = boardgameService;
     this.boardgamesService.loadBoardgames().then(boardgames => {
       this.boardgames = boardgames;
@@ -31,10 +35,16 @@ export default class GamePage {
       document.querySelector(".favoriteButton").innerHTML = /*html*/ `
         <img src="../images/heart-unfilled.svg">
         `;
+      this.userRef.doc(id).delete();
+      console.log("Jeg burde have slettet nu");
     } else {
       document.querySelector(".favoriteButton").innerHTML = /*html*/ `
         <img src="../images/heart.svg">
         `;
+      this.userRef.add({
+        id,
+      });
+      console.log("Jeg burde have added nu");
     }
     this.favorite = !this.favorite;
   }
