@@ -84,7 +84,7 @@ export default class HomePage {
     document.getElementById("content").innerHTML += /*html*/ `
       <section id="home" class="page page-forside">
         <header class="forsideHeader">
-          <img src="../images/logo.png">
+          <img src="images/logo.png">
           <input type="text" placeholder="Søg her.." onkeyup="search(this.value)">
         </header>
 
