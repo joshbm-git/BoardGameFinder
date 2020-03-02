@@ -1,3 +1,5 @@
+/* RACE has made the code for this */
+
 class SpaService {
   constructor() {
     this.defaultPage = "home";

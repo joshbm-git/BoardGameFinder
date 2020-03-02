@@ -4,6 +4,8 @@ import {
 
 import boardgameService from "./boardgames.js";
 
+/* Mike has made the code for this */
+
 export default class FavoriteService {
     constructor() {
         this.favoriteRef = firebaseDB.collection("favorites");
@@ -17,9 +19,6 @@ export default class FavoriteService {
 
 
     }
-
-
-
 
     template() {
         document.getElementById('content').innerHTML += /*html*/ `

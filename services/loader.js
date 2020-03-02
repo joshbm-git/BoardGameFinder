@@ -1,3 +1,5 @@
+/* RACE has made the code for this */
+
 class LoaderService {
   constructor() {
     this.template();

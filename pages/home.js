@@ -3,6 +3,8 @@ import loaderService from "../services/loader.js";
 import GamePage from "./gamepage.js";
 let gamePage = new GamePage();
 
+
+/* Sander has made the code for this */
 export default class HomePage {
   constructor() {
     this.template();
@@ -122,6 +124,7 @@ export default class HomePage {
     loaderService.show(false);
   }
 
+  /* Sander and Mike have made the code for this */
   // search functionality
   search(value) {
     /*     console.log(value); */
@@ -137,6 +140,8 @@ export default class HomePage {
     this.appendBoardgames(filteredGames);
   }
 
+
+  /* Jacob has made the code for this */
   setChosenGame(id) {
     this.chosenGame = id;
     /*     console.log(this.chosenGame); */

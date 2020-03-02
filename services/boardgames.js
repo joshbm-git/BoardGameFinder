@@ -12,7 +12,7 @@
     this.loaderService.show(false);
     return jsonData.games;
   }*/
-
+/* THE ENTIRE GROUP HAS COLLABORATED ON THE CODE */
 class BoardgamesService {
   constructor() {}
 

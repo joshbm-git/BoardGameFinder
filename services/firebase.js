@@ -1,3 +1,5 @@
+/* All has made the code for this */
+
 const firebaseConfig = {
     apiKey: "AIzaSyDNmWbE7CjS7Z3mEtyU84v_gzscMFVuOcE",
     authDomain: "boardgamefinder-b5afb.firebaseapp.com",

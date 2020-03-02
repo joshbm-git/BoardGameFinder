@@ -14,8 +14,9 @@ export default class FilterPage {
 
   }
 
-  template() {
+  /* Joshua has made the code for filter.js */
 
+  template() {
     document.getElementById('content').innerHTML += /*html*/ `
         <section id="filter" class="page gradientBg">
           <header class="topbar gradientBg">
@@ -131,7 +132,3 @@ export default class FilterPage {
 
   }
 }
-
-//todo:
-//  players on click ->> return board games with x min player count
-// after picking genres, display block the grid-boardgames, with a loader before

@@ -1,3 +1,6 @@
+/*  THE ENTIRE GROUP HAS COLLABORATED ON THE CODE  */
+
+
 // import your hideAllPages
 import HomePage from "./pages/home.js";
 import FilterPage from "./pages/filter.js";
