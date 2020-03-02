@@ -88,8 +88,6 @@ export default class HomePage {
           <input type="text" placeholder="Søg her.." onkeyup="search(this.value)">
         </header>
 
-        <input type="text" placeholder="Søg her.." onkeyup="search(this.value)">
-
         <div class="grid-wrapper">
         <h3>Mest populære brætspil</h3>
         <div id="grid-boardgames" class="grid-container"></div>
@@ -101,7 +99,7 @@ export default class HomePage {
   appendBoardgames(boardgames) {
     /*     console.log(boardgames); */
 
-    boardgames.sort(function(a, b) {
+    boardgames.sort(function (a, b) {
       return b.average_user_rating.toString().localeCompare(a.average_user_rating.toString());
     });
 
