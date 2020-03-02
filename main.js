@@ -45,7 +45,7 @@ window.addGenre = () => filterPage.addGenre();
 window.appendBoardgames = () => filterPage.appendBoardgames();
 
 window.search = (value) => homePage.search(value);
-window.findGame = (id) => gamePage.findGame(id);
+window.setChosenGame = (id) => gamePage.findGame(id);
 window.addFavorite = (id) => gamePage.addFavorite(id);
 
 window.addToFavourites = (bgId) => gamePage.addToFavourites(bgId);
