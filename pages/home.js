@@ -81,8 +81,9 @@ export default class HomePage {
   template() {
     document.getElementById("content").innerHTML += /*html*/ `
       <section id="home" class="page page-forside">
-        <header>
-          <img src="../images/logo.png" class="logo">
+        <header class="forsideHeader">
+          <img src="images/logo.png">
+          <input type="text" placeholder="Søg her.." onkeyup="search(this.value)">
         </header>
 
         <input type="text" placeholder="Søg her.." onkeyup="search(this.value)">
@@ -98,7 +99,7 @@ export default class HomePage {
   appendBoardgames(boardgames) {
     /*     console.log(boardgames); */
 
-    boardgames.sort(function (a, b) {
+    boardgames.sort(function(a, b) {
       return b.average_user_rating.toString().localeCompare(a.average_user_rating.toString());
     });
 
