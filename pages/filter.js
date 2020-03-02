@@ -31,8 +31,8 @@ export default class FilterPage {
               <button class="box" onclick="setPlayer(6);addPlaytime();">6</button>
               <button class="box" onclick="setPlayer(7);addPlaytime();">7</button>
               <button class="box" onclick="setPlayer(8);addPlaytime();">8+</button>
-              </div>
            </article>
+           </div>
         </section>
       `;
   }
