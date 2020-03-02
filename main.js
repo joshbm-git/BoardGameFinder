@@ -21,23 +21,23 @@ spaService.init();
 window.pageChange = () => spaService.pageChange();
 
 window.setPlayer = (value) => {
-    filterPage.players = value;
-    console.log(filterPage.players)
-    console.log(value)
-    // console.log(filterPage.filteredBoardgames)
+  filterPage.players = value;
+  console.log(filterPage.players)
+  console.log(value)
+  // console.log(filterPage.filteredBoardgames)
 }
 
 window.setPlaytime = (value) => {
-    filterPage.playtime = value;
-    console.log(filterPage.playtime)
-    console.log(value)
+  filterPage.playtime = value;
+  console.log(filterPage.playtime)
+  console.log(value)
 }
 
 window.setGenre = (value) => {
-    filterPage.genre = value;
-    filterPage.filterAll();
-    console.log(filterPage.genre)
-    console.log(value)
+  filterPage.genre = value;
+  filterPage.filterAll();
+  console.log(filterPage.genre)
+  console.log(value)
 }
 
 window.addPlaytime = () => filterPage.addPlaytime();
@@ -45,7 +45,7 @@ window.addGenre = () => filterPage.addGenre();
 window.appendBoardgames = () => filterPage.appendBoardgames();
 
 window.search = (value) => homePage.search(value);
-window.setChosenGame = (id) => gamePage.setChosenGame(id);
+window.findGame = (id) => gamePage.findGame(id);
 window.addFavorite = (id) => gamePage.addFavorite(id);
 
 window.addToFavourites = (bgId) => gamePage.addToFavourites(bgId);
