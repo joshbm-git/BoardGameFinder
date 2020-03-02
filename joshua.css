@@ -39,6 +39,16 @@
     font-weight: bold;
 }
 
+#tryagain {
+    width: 100%;
+}
+
+.box a {
+    color: black;
+    text-decoration: none;
+
+}
+
 #genres .box {
     font-size: 1em;
 }
@@ -47,9 +57,20 @@
     grid-template-columns: 1fr;
 }
 
-.boardgame {
-    border: solid;
+.flex {
+    display: flex;
+    justify-content: center;
 
+}
+
+.boardgame {
+    border-bottom: 1px solid lightgray;
+    padding: 1em;
+
+}
+
+.boardgame:nth-last-of-type(1) {
+    margin-bottom: 5em;
 }
 
 .figureWrapper {

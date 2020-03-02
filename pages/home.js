@@ -1,6 +1,5 @@
 import boardgameService from "../services/boardgames.js";
 import loaderService from "../services/loader.js";
-import GamePage from "./gamepage.js"
 
 export default class HomePage {
   constructor() {

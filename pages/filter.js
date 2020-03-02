@@ -1,5 +1,4 @@
 import boardgameService from "../services/boardgames.js";
-import loaderService from "../services/loader.js";
 export default class FilterPage {
   constructor() {
     this.template();
@@ -73,7 +72,7 @@ export default class FilterPage {
   }
 
   filterAll() {
-    loaderService.show(true);
+
     for (let boardgame of this.boardgames) {
       if (this.players >= boardgame.min_players && this.players <= boardgame.max_players) {
         if (this.playtime >= boardgame.min_playtime && this.playtime <= boardgame.max_playtime) {
@@ -110,9 +109,11 @@ export default class FilterPage {
       for (let boardgame of this.filteredBoardgames) {
         document.querySelector(".filter-wrapper").innerHTML += /*html*/ `
       <div class="boardgame">
+      <div class="flex">
       <figure>
         <img src="${boardgame.images.original}">  
       </figure>
+      </div>
       <h2>${boardgame.name}</h2>
     <div>
       `
@@ -120,7 +121,7 @@ export default class FilterPage {
     } else {
       document.querySelector(".filter-wrapper").innerHTML = /*html*/ `
       <h2>Vi fandt ${this.filteredBoardgames.length} matches</h2>
-          <button class="box" onclick="location.reload();"><a href="#filter">Prøv igen</a></button>
+          <button class="box" id="tryagain" onclick="location.reload();"><a href="#filter">Prøv igen</a></button>
     `
 
       loaderService.show(false);
