@@ -7,12 +7,14 @@ import boardgameService from "./boardgames.js";
 export default class FavoriteService {
     constructor() {
         this.favoriteRef = firebaseDB.collection("favorites");
-        this.read();
+
         this.template();
         this.boardgamesService = boardgameService;
         this.boardgamesService.loadBoardgames().then(boardgames => {
             this.boardgames = boardgames;
+            this.read();
         });
+
 
     }
 
@@ -25,10 +27,6 @@ export default class FavoriteService {
               
               <div id="favoriteInfo">
              </div>
-             
-             
-
-              
             </section>
 
           `;
@@ -52,52 +50,33 @@ export default class FavoriteService {
 
     // append favorites to the DOM
     appendFavorites(favorites) {
-
-
-
         for (let favorite of favorites) {
+            let favGame = this.findGame(favorite);
+            console.log(favGame)
             document.getElementById('favoriteInfo').innerHTML += /*html*/ `
-            
-        <div class="favoriteWrapper">
-        <div class="favoriteInfoWrapper">
-        <h2><strong>${favorite.id}</strong></h2>
-        <div class="favoriteCategories">
-        
-        </div>
-        </div>
-        </div>
-        <hr>
-        
+     
+            <div class="favoriteWrapper">
+     
+                    <img src="${favGame.images.small}">
 
+                <div class="favoriteInfoWrapper">
+                 <h2>${favGame.name}</h2>
+                <div class="favoriteRatingWrapper">
+               
+                <p>Rating: ${favGame.average_user_rating.toFixed(1)}</p>
+                 </div>
+                </div>
+            </div>
       `;
         }
 
     }
 
-    /* 
-                               let filteredGames = [];
-                               for (let boardgame of this.boardgames) {
-                                   let gameId = favorite.id;
-
-                                   if (boardgame.id.includes(gameId)) {
-                                       filteredGames.push(boardgame);
-                                   }
-           console.log(filteredGames);
-           
-          
-                               } */
-
-    findGames(favorites) {
-        /*        console.log(favorites); */
-        let chosenId = id;
-        let filteredGames = [];
-        for (let boardgame of boardgames) {
-            let gameId = boardgame.id;
-            if (gameId.includes(chosenId)) {
-                filteredGames.push(boardgame);
+    findGame(favorite) {
+        for (let boardgame of this.boardgames) {
+            if (boardgame.id === favorite.id) {
+                return boardgame;
             }
         }
-        this.theActualGame = filteredGames[0];
-        /*         console.log(this.theActualGame); */
     }
 }

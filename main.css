@@ -191,8 +191,12 @@ form button {
 /* --------------------------------------------------------------------------- */
 /* Custom css */
 .topbar {
-  background-color: red;
+  background-image: linear-gradient(to left bottom, #f7718d, #fec771);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-top: 1em;
   font-size: 0.9em;
+
 }
 
 /* ---------- tabbar styling ---------- */
@@ -220,6 +224,3 @@ form button {
   opacity: 1;
   filter: invert(36%) sepia(55%) saturate(4385%) hue-rotate(328deg) brightness(100%) contrast(103%);
 }
-
-/* --------------------------------------------------------------------------- */
-/* CSS by Jacob */
