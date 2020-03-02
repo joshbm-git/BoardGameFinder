@@ -32,8 +32,9 @@ export default class FilterPage {
               <button class="box" onclick="setPlayer(7);addPlaytime();">7</button>
               <button class="box" onclick="setPlayer(8);addPlaytime();">8+</button>
            </article>
-           </div>
+            </div>
         </section>
+
       `;
   }
 
@@ -67,7 +68,7 @@ export default class FilterPage {
     <button class="box" onclick="setGenre('2Gu62aKdma');appendBoardgames();">Role Playing</button>
     <button class="box" onclick="setGenre('3B3QpKvXD3');appendBoardgames();">Sci-fi</button>
     <button class="box" onclick="setGenre('O0ogzwLUe8');appendBoardgames();">Strategy</button>
-    </article> 
+    </article>
   `;
   }
 
@@ -111,7 +112,7 @@ export default class FilterPage {
       <div class="boardgame">
       <div class="flex">
       <figure>
-        <img src="${boardgame.images.original}">  
+        <img src="${boardgame.images.original}">
       </figure>
       </div>
       <h2>${boardgame.name}</h2>
