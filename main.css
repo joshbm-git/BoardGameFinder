@@ -190,8 +190,12 @@ form button {
 /* --------------------------------------------------------------------------- */
 /* Custom css */
 .topbar {
-  background-color: red;
+  background-image: linear-gradient(to left bottom, #f7718d, #fec771);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-top: 1em;
   font-size: 0.9em;
+
 }
 
 /* ---------- tabbar styling ---------- */

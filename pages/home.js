@@ -123,7 +123,7 @@ export default class HomePage {
 
   // search functionality
   search(value) {
-    console.log(value);
+    /*     console.log(value); */
     let searchQuery = value.toLowerCase();
     let filteredGames = [];
     for (let boardgame of this.boardgames) {
@@ -132,9 +132,12 @@ export default class HomePage {
         filteredGames.push(boardgame);
       }
     }
-    console.log(filteredGames);
+    /*     console.log(filteredGames); */
     this.appendBoardgames(filteredGames);
   }
 
-
+  setChosenGame(id) {
+    this.chosenGame = id;
+    /*     console.log(this.chosenGame); */
+  }
 }

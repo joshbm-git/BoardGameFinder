@@ -30,7 +30,7 @@ export default class GamePage {
   }
 
   addFavorite(id) {
-    console.log(id);
+    /*    console.log(id); */
     if (this.favorite) {
       document.querySelector(".favoriteButton").innerHTML = /*html*/ `
         <img src="../images/heart-unfilled.svg">
@@ -61,12 +61,12 @@ export default class GamePage {
       }
     }
     this.theActualGame = filteredGames[0];
-    console.log(this.theActualGame);
+    /*     console.log(this.theActualGame); */
 
 
     document.querySelector(".topbarWithImage").style.backgroundImage = "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.0)), url(" + this.theActualGame.image_url + ")";
 
-    console.log(this.theActualGame.image_url);
+    /*     console.log(this.theActualGame.image_url); */
 
     document.querySelector(".topbarWithImage").innerHTML = /*html*/ `
       <div class="topbarText">
