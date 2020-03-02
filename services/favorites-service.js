@@ -18,6 +18,9 @@ export default class FavoriteService {
 
     }
 
+
+
+
     template() {
         document.getElementById('content').innerHTML += /*html*/ `
             <section id="favorites" class="page">

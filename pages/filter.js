@@ -15,6 +15,7 @@ export default class FilterPage {
   }
 
   template() {
+
     document.getElementById('content').innerHTML += /*html*/ `
         <section id="filter" class="page gradientBg">
           <header class="topbar gradientBg">
