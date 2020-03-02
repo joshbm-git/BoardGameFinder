@@ -21,3 +21,9 @@ window.pageChange = () => spaService.pageChange();
 window.search = (value) => homePage.search(value);
 window.setChosenGame = (id) => gamePage.findGame(id);
 window.addFavorite = (id) => gamePage.addFavorite(id);
+
+window.addGenre = () => filterPage.addGenre();
+window.appendBoardgame = () => filterPage.appendBoardgames();
+
+window.addToFavourites = (bgId) => gamePage.addToFavourites(bgId);
+window.removeFromFavourites = (bgId) => gamePage.removeFromFavourites(bgId);

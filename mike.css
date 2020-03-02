@@ -1,0 +1,45 @@
+/* --------------------------------------------------------------------------- */
+/* CSS by Mike */
+#favoriteInfo {
+  width: 320px;
+  margin: 0 auto;
+}
+
+.favoriteWrapper {
+  display: flex;
+  border-bottom: solid 1px;
+  justify-content: start;
+  padding: 1em;
+}
+
+.favoriteWrapper img {
+  width: 5em;
+  height: 5em;
+  object-fit: cover;
+  margin: auto;
+  margin-right: 1em;
+  border-radius: 12px;
+}
+
+.favoriteInfoWrapper {
+  width: 100%;
+  text-align: left;
+}
+
+.favoriteInfoWrapper h2 {
+  font-size: 1em;
+  margin: auto;
+}
+
+.favoriteRatingWrapper {
+  display: flex;
+}
+
+.favoriteRatingWrapper p {
+  line-height: 0;
+}
+
+.favoriteRatingWrapper img {
+  margin-right: 0.5em;
+  width: 1em;
+}
