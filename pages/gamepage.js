@@ -16,6 +16,7 @@ export default class GamePage {
     this.favorite = false;
   }
 
+  // THIS PART HAS BEEN MADE BY JACOB
   template() {
     document.getElementById('content').innerHTML += /*html*/ `
       <section id="game" class="page pageWithMargin">
@@ -28,6 +29,8 @@ export default class GamePage {
       </section>
     `;
   }
+
+  // THIS PART HAS BEEN MADE BY JOSHUA
   create(id) {
     this.bgRef.doc(id).set({
       id
@@ -38,7 +41,7 @@ export default class GamePage {
     this.bgRef.doc(id).delete();
   }
 
-
+  // THIS PART HAS BEEN MADE BY JACOB & JOSHUA
   addFavorite(id) {
     console.log(id);
     if (this.favorite) {
@@ -58,6 +61,7 @@ export default class GamePage {
     this.favorite = !this.favorite;
   }
 
+  // THIS PART HAS BEEN MADE BY JACOB
   findGame(id) {
     loaderService.show(true);
     console.log(id);
