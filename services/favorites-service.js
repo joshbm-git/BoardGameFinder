@@ -4,6 +4,9 @@ import {
 
 import boardgameService from "./boardgames.js";
 
+import GamePage from "../pages/gamepage.js";
+let gamePage = new GamePage();
+
 /* Mike has made the code for this */
 
 export default class FavoriteService {
@@ -15,6 +18,7 @@ export default class FavoriteService {
         this.boardgamesService.loadBoardgames().then(boardgames => {
             this.boardgames = boardgames;
             this.read();
+            this.chosenGame = "";
         });
 
 
@@ -56,7 +60,7 @@ export default class FavoriteService {
             let favGame = this.findGame(favorite);
             console.log(favGame)
             document.getElementById('favoriteInfo').innerHTML += /*html*/ `
-     
+     <a href="#game" onclick="setChosenGame('${favGame.id}')">
             <div class="favoriteWrapper">
      
                     <img src="${favGame.images.small}">
@@ -69,6 +73,7 @@ export default class FavoriteService {
                  </div>
                 </div>
             </div>
+            </a>
       `;
         }
 
@@ -80,5 +85,11 @@ export default class FavoriteService {
                 return boardgame;
             }
         }
+    }
+
+    /* Jacob has made the code for this */
+    setChosenGame(id) {
+        this.chosenGame = id;
+        /*     console.log(this.chosenGame); */
     }
 }

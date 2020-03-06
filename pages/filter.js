@@ -1,4 +1,7 @@
 import boardgameService from "../services/boardgames.js";
+import GamePage from "./gamepage.js";
+let gamePage = new GamePage();
+
 export default class FilterPage {
   constructor() {
     this.template();
@@ -11,6 +14,7 @@ export default class FilterPage {
     this.players = 0;
     this.playtime = 0;
     this.genre = "";
+    this.chosenGame = "";
 
   }
 
@@ -110,8 +114,10 @@ export default class FilterPage {
         document.querySelector(".filter-wrapper").innerHTML += /*html*/ `
       <div class="boardgame">
       <div class="flex">
-      <figure>
+      <figure onclick="setChosenGame('${boardgame.id}')">
+      <a href="#game">
         <img src="${boardgame.images.original}">
+        </a>
       </figure>
       </div>
       <h2>${boardgame.name}</h2>
@@ -127,5 +133,12 @@ export default class FilterPage {
       loaderService.show(false);
     }
 
+  }
+
+
+  /* Jacob has made the code for this */
+  setChosenGame(id) {
+    this.chosenGame = id;
+    /*     console.log(this.chosenGame); */
   }
 }
