@@ -93,8 +93,6 @@ export default class FilterPage {
     let includes = false;
 
     for (let category of categories) {
-      /*   console.log(category)
-        console.log(genre) */
       if (category.id == genre) {
         includes = true;
       }
@@ -105,7 +103,6 @@ export default class FilterPage {
   appendBoardgames() {
 
     if (this.filteredBoardgames.length > 0) {
-
       document.querySelector(".filter-wrapper").innerHTML = /*html*/ `
       <h2>Vi fandt ${this.filteredBoardgames.length} matches</h2>
     `
