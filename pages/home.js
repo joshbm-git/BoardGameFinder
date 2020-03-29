@@ -3,7 +3,6 @@ import loaderService from "../services/loader.js";
 import GamePage from "./gamepage.js";
 let gamePage = new GamePage();
 
-
 /* Sander has made the code for this */
 export default class HomePage {
   constructor() {
@@ -11,7 +10,7 @@ export default class HomePage {
     this.boardgamesService = boardgameService;
     this.boardgamesService.loadBoardgames().then(boardgames => {
       this.boardgames = boardgames;
-      this.appendBoardgames(boardgames)
+      this.appendBoardgames(boardgames);
       this.cat_fantasy = "ZTneo8TaIO";
       this.cat_adventure = "KUBCKBkGxV";
       this.cat_strategy = "O0ogzwLUe8";
@@ -101,8 +100,10 @@ export default class HomePage {
   appendBoardgames(boardgames) {
     /*     console.log(boardgames); */
 
-    boardgames.sort(function (a, b) {
-      return b.average_user_rating.toString().localeCompare(a.average_user_rating.toString());
+    boardgames.sort(function(a, b) {
+      return b.average_user_rating
+        .toString()
+        .localeCompare(a.average_user_rating.toString());
     });
 
     document.querySelector("#grid-boardgames").innerHTML = "";
@@ -112,7 +113,9 @@ export default class HomePage {
 
                 <article>
                 <div class="img-container">
-                <a href="#game"><img src="${boardgame.images.small}" onclick="setChosenGame('${boardgame.id}')"></a>
+                <a href="#game"><img src="${
+                  boardgame.images.large
+                }" onclick="setChosenGame('${boardgame.id}')"></a>
                   </div>
                   <h4>${boardgame.name}</h4>
                   <h5>${this.getCategories(boardgame.categories)}</h5>
@@ -139,7 +142,6 @@ export default class HomePage {
     /*     console.log(filteredGames); */
     this.appendBoardgames(filteredGames);
   }
-
 
   /* Jacob has made the code for this */
   setChosenGame(id) {
