@@ -1,12 +1,11 @@
 /*  THE ENTIRE GROUP HAS COLLABORATED ON THE CODE  */
 
-
 // import your hideAllPages
 import HomePage from "./pages/home.js";
 import FilterPage from "./pages/filter.js";
 // import FavoritesPage from "./pages/favorites.js";
 import GamePage from "./pages/gamepage.js";
-import FavoriteService from "./services/favorites-service.js";
+import FavoriteService from "./pages/favorites.js";
 
 // import your services
 import spaService from "./services/spa.js";
@@ -25,23 +24,23 @@ window.pageChange = () => spaService.pageChange();
 
 window.setPlayer = (value) => {
   filterPage.players = value;
-  console.log(filterPage.players)
-  console.log(value)
+  console.log(filterPage.players);
+  console.log(value);
   // console.log(filterPage.filteredBoardgames)
-}
+};
 
 window.setPlaytime = (value) => {
   filterPage.playtime = value;
-  console.log(filterPage.playtime)
-  console.log(value)
-}
+  console.log(filterPage.playtime);
+  console.log(value);
+};
 
 window.setGenre = (value) => {
   filterPage.genre = value;
   filterPage.filterAll();
-  console.log(filterPage.genre)
-  console.log(value)
-}
+  console.log(filterPage.genre);
+  console.log(value);
+};
 
 window.addPlaytime = () => filterPage.addPlaytime();
 window.addGenre = () => filterPage.addGenre();

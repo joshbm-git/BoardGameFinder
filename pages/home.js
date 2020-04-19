@@ -1,5 +1,4 @@
 import boardgameService from "../services/boardgames.js";
-import loaderService from "../services/loader.js";
 import GamePage from "./gamepage.js";
 let gamePage = new GamePage();
 
@@ -8,7 +7,7 @@ export default class HomePage {
   constructor() {
     this.template();
     this.boardgamesService = boardgameService;
-    this.boardgamesService.loadBoardgames().then(boardgames => {
+    this.boardgamesService.loadBoardgames().then((boardgames) => {
       this.boardgames = boardgames;
       this.appendBoardgames(boardgames);
       this.cat_fantasy = "ZTneo8TaIO";
@@ -100,7 +99,7 @@ export default class HomePage {
   appendBoardgames(boardgames) {
     /*     console.log(boardgames); */
 
-    boardgames.sort(function(a, b) {
+    boardgames.sort(function (a, b) {
       return b.average_user_rating
         .toString()
         .localeCompare(a.average_user_rating.toString());
@@ -124,7 +123,6 @@ export default class HomePage {
     }
 
     document.querySelector("#grid-boardgames").innerHTML += htmlTemplate;
-    loaderService.show(false);
   }
 
   /* Sander and Mike have made the code for this */

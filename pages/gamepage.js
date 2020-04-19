@@ -1,14 +1,11 @@
 import boardgameService from "../services/boardgames.js";
-import loaderService from "../services/loader.js"
 
-import {
-  firebaseDB
-} from "../services/firebase.js"
+import { firebaseDB } from "../services/firebase.js";
 export default class GamePage {
   constructor() {
     this.bgRef = firebaseDB.collection("favorites");
     this.boardgamesService = boardgameService;
-    this.boardgamesService.loadBoardgames().then(boardgames => {
+    this.boardgamesService.loadBoardgames().then((boardgames) => {
       this.boardgames = boardgames;
     });
     this.chosenGame = "";
@@ -19,7 +16,7 @@ export default class GamePage {
 
   // THIS PART HAS BEEN MADE BY JACOB
   template() {
-    document.getElementById('content').innerHTML += /*html*/ `
+    document.getElementById("content").innerHTML += /*html*/ `
       <section id="game" class="page pageWithMargin">
         <header class="topbarWithImage">
         </header>
@@ -34,7 +31,7 @@ export default class GamePage {
   // THIS PART HAS BEEN MADE BY JOSHUA
   create(id) {
     this.bgRef.doc(id).set({
-      id
+      id,
     });
   }
 
@@ -49,14 +46,14 @@ export default class GamePage {
       document.querySelector(".favoriteButton").innerHTML = /*html*/ `
         <img src="images/heart-unfilled.svg">
         `;
-      this.delete(id)
+      this.delete(id);
       console.log("Jeg burde have slettet nu");
     } else {
       document.querySelector(".favoriteButton").innerHTML = /*html*/ `
         <img src="images/heart.svg">
         `;
 
-      this.create(id)
+      this.create(id);
       console.log("Jeg burde have added nu");
     }
     this.favorite = !this.favorite;
@@ -64,7 +61,6 @@ export default class GamePage {
 
   // THIS PART HAS BEEN MADE BY JACOB
   findGame(id) {
-    loaderService.show(true);
     console.log(id);
     let chosenId = id;
     let filteredGames = [];
@@ -77,8 +73,10 @@ export default class GamePage {
     this.theActualGame = filteredGames[0];
     /*     console.log(this.theActualGame); */
 
-
-    document.querySelector(".topbarWithImage").style.backgroundImage = "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.0)), url(" + this.theActualGame.images.large + ")";
+    document.querySelector(".topbarWithImage").style.backgroundImage =
+      "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.0)), url(" +
+      this.theActualGame.images.large +
+      ")";
 
     console.log(this.theActualGame.images.large);
 
@@ -97,7 +95,9 @@ export default class GamePage {
       </div>
       <div class="pieceOfGameInfo">
       <img src="images/clock.svg" alt="Playtime">
-      <p>${this.theActualGame.min_playtime}-${this.theActualGame.max_playtime}m</p>
+      <p>${this.theActualGame.min_playtime}-${
+      this.theActualGame.max_playtime
+    }m</p>
       </div>
       <div class="pieceOfGameInfo">
       <img src="images/star.svg" alt="User Rating">
@@ -114,8 +114,5 @@ export default class GamePage {
         `;
 
     document.title = this.theActualGame.name + " | Board Game Finder";
-    loaderService.show(false);
   }
-
-
 }
