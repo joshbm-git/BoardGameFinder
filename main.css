@@ -51,12 +51,15 @@ h3 {
 
 /* ---------- tabbar styling ---------- */
 .tabbar {
-  background-color: #fff;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 9999;
+  background-color: #fff;
+  opacity: 0.9;
+  border-top: solid 1px #f1f1f1;
+  backdrop-filter: blur(10px);
 }
 
 /* Style the links inside the navigation bar */
@@ -69,6 +72,23 @@ h3 {
   font-size: 0.8em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  opacity: 0.2;
+  /* filter: invert(100%); */
+  margin: 0 1.5em;
+}
+
+/* Change the color of links on hover */
+.tabbar a:hover {
+  opacity: 1;
+  filter: invert(36%) sepia(55%) saturate(4385%) hue-rotate(328deg)
+    brightness(100%) contrast(103%);
+}
+
+/* Add a color to the active/current link */
+.tabbar a.active {
+  opacity: 1;
+  filter: invert(36%) sepia(55%) saturate(4385%) hue-rotate(328deg)
+    brightness(100%) contrast(103%);
 }
 
 /* ---------- page styling ---------- */
@@ -197,34 +217,6 @@ form button {
   font-size: 0.9em;
 }
 
-/* ---------- tabbar styling ---------- */
-.tabbar {
-  background-color: #fff;
-  opacity: 0.9;
-  border-top: solid 1px #f1f1f1;
-  backdrop-filter: blur(10px);
-}
-
-.tabbar a {
-  opacity: 0.2;
-  /* filter: invert(100%); */
-  margin: 0 1.5em;
-}
-
-/* Change the color of links on hover */
-.tabbar a:hover {
-  opacity: 1;
-  filter: invert(36%) sepia(55%) saturate(4385%) hue-rotate(328deg)
-    brightness(100%) contrast(103%);
-}
-
-/* Add a color to the active/current link */
-.tabbar a.active {
-  opacity: 1;
-  filter: invert(36%) sepia(55%) saturate(4385%) hue-rotate(328deg)
-    brightness(100%) contrast(103%);
-}
-
 /* --------------------------------------------------------------------------- */
 /* gradient with box design*/
 
@@ -232,107 +224,4 @@ form button {
   background-image: linear-gradient(to left bottom, #f7718d, #fec771);
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
-
-/* --------------------------------------------------------------------------- */
-/* Home*/
-
-/* CSS Sander */
-.page-forside {
-  background-image: linear-gradient(to left bottom, #f7718d, #fec771);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  padding-top: 0;
-  padding: 2em 1em 6em 1em;
-}
-
-.topbar-forside {
-  background-color: none;
-  color: var(--text-color-light);
-  padding: 13.5px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-}
-
-.topbar-forside h2 {
-  margin: 0;
-  font-weight: 300;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
-
-.grid-wrapper {
-  background-color: white;
-  padding: 10px;
-  border-radius: 20px;
-  width: 50%;
-  margin: 0 auto;
-}
-
-.grid-container article {
-  text-align: center;
-  padding: 8px;
-  background: white;
-}
-
-.img-container {
-  /* border: solid 2px white; */
-  border-radius: 15px;
-  box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.2);
-  height: 500px;
-  /* line-height: 160px; */
-  padding: 3px;
-}
-
-.grid-container article img {
-  margin: 0;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
-}
-
-.grid-container article h4 {
-  margin: 20px 0 0 0;
-}
-
-.grid-container article h5 {
-  font-size: 0.8em;
-  color: rgba(0, 0, 0, 0.5);
-  margin-top: 0px;
-}
-
-.grid-wrapper h3 {
-  letter-spacing: normal;
-  font-weight: 900;
-  font-size: 1.4em;
-  margin-top: 48px;
-}
-
-input {
-  width: 100%;
-  margin: 1em auto;
-  padding: 15px 15px;
-  box-sizing: border-box;
-  display: block;
-  border: 0;
-  border-radius: 10px;
-  margin-bottom: 30px;
-}
-
-header img {
-  width: 90%;
-  /* max-width: 300px; */
-}
-
-.forsideHeader {
-  width: 100%;
-  max-width: 320px;
-  margin: 0 auto;
 }

@@ -1,0 +1,75 @@
+/* --------------------------------------------------------------------------- */
+/* Scaling */
+
+@media (min-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .img-container {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  .box {
+    width: 10em;
+    height: 5em;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    background: black;
+  }
+
+  .topbar {
+    padding: 1em 0;
+  }
+
+  #content,
+  .tabbar,
+  .topbar {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .img-container {
+    width: 90%;
+  }
+
+  .box {
+    width: 7em;
+    height: 4em;
+  }
+}
+
+@media (min-width: 1440px) {
+  .topbar {
+    padding: 1em 0;
+  }
+
+  #content,
+  .tabbar,
+  .topbar {
+    width: 35%;
+    margin: 0 auto;
+  }
+
+  .img-container {
+    width: 90%;
+  }
+
+  .box {
+    width: 7em;
+    height: 4em;
+  }
+}
+
+@media (min-width: 1920px) {
+  #content,
+  .tabbar,
+  .topbar {
+    width: 20%;
+    margin: 0 auto;
+  }
+}
