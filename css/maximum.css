@@ -15,6 +15,14 @@
     width: 10em;
     height: 5em;
   }
+
+  header {
+    padding: 0 !important;
+  }
+
+  .topbarWithImage {
+    height: 400px !important;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -28,7 +36,8 @@
 
   #content,
   .tabbar,
-  .topbar {
+  .topbar,
+  header {
     width: 50%;
     margin: 0 auto;
   }
@@ -50,7 +59,8 @@
 
   #content,
   .tabbar,
-  .topbar {
+  .topbar,
+  header {
     width: 35%;
     margin: 0 auto;
   }
@@ -68,8 +78,17 @@
 @media (min-width: 1920px) {
   #content,
   .tabbar,
-  .topbar {
+  .topbar,
+  header {
     width: 20%;
     margin: 0 auto;
+  }
+
+  .topbarWithImage {
+    height: 300px !important;
+  }
+
+  .pageWithMargin {
+    margin: 15em 0 2em 0;
   }
 }
